@@ -1,3 +1,4 @@
+auto/
 *.aux
 *latexmk
 *.log
