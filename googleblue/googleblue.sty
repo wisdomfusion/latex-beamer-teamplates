@@ -54,9 +54,8 @@
 \setbeamertemplate{part page}[default][colsep=-4bp,rounded=false]
 
 % Navigation symbols:
-\setbeamertemplate{navigation symbols}{}
-
-
+%\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{sidebar right}{}
 
 % Colors
 %\definecolor{sapred}{RGB}{130,36,51}
@@ -87,63 +86,68 @@
 }
 
 % Footline: AUTHOR | TITLE | DATE FRAMENUMBER
-
 \defbeamertemplate*{footline}{mat theme}{%
   \begin{beamercolorbox}[wd=\paperwidth, ht=4ex, dp=3ex]{title in head/foot}%
-    \begin{minipage}[t]{0.48\textwidth}%
-      \hskip10pt \insertshortauthor%
+    \begin{minipage}{0.48\textwidth}%
+      \hskip10pt \usebeamertemplate***{navigation symbols}%
     \end{minipage}%
-    \begin{minipage}[t]{0.48\textwidth}%
-      \hfill \insertframenumber{} / \inserttotalframenumber \hskip10pt \vfill%
+    \begin{minipage}{0.48\textwidth}%
+      \flushright \insertframenumber{} / \inserttotalframenumber \hskip10pt%
     \end{minipage}%
   \end{beamercolorbox}%
   \vfill%
 }
 
 \usepackage{tcolorbox}  
-\tcbuselibrary{skins}                                  %  preamble 
-\usepackage{tikz}                                      %
-\usetikzlibrary{shadows,shadings}                      %
+\tcbuselibrary{skins}                                 % preamble 
+\usepackage{tikz}                                     %
+\usetikzlibrary{shadows, shadings}                    %
 
-\tikzset{myshadow/.style={                             % custom shadow with tikz
-         opacity=.16,
-         shadow xshift=0.01,
-         shadow yshift=-0.02,
-         shade,
-         shading=axis,
-         shading angle=230}
-         } 
-\tcbset{                                               % set a custom tcolorbox  
-        skin=enhanced,                                 % enables use of shadows
-        frame style={fill=matblue, drop shadow={myshadow}}, % sets the frame color and the shadow properties
-        bottom=5pt,                                    % distance between the body text and the bottom frame
-        top=5pt,                                      % distance between the body text and the top frame
-        boxrule=0mm,                                   % frame width
-        bottomtitle=2mm,                               % distance between the title text and the bottom title frame               
-        toptitle=2mm,                                  % distance between the title text and the top title frame
-        lefttitle=10pt                                  % title text left margin
+\tikzset{myshadow/.style={                            % custom shadow with tikz
+    opacity=.16,
+    shadow xshift=0.01,
+    shadow yshift=-0.02,
+    shade,
+    shading=axis,
+    shading angle=230
+  }
+} 
+
+\tcbset{                                              % set a custom tcolorbox
+  skin=enhanced,                                      % enables use of shadows
+  frame style={fill=matblue,drop shadow={myshadow}},  % sets the frame color and the shadow properties
+  bottom=5pt,                                         % distance between the body text and the bottom frame
+  top=5pt,                                            % distance between the body text and the top frame
+  boxrule=0mm,                                        % frame width
+  bottomtitle=2mm,                                    % distance between the title text and the bottom title frame               
+  toptitle=2mm,                                       % distance between the title text and the top title frame
+  lefttitle=10pt                                      % title text left margin
 }
 
 \setbeamercolor{block body}{bg=matbluelight, fg=black}
 
 \defbeamertemplate*{block begin}{mat theme}
-{\begin{tcolorbox}[title=\large \insertblocktitle]}
+{
+  \begin{tcolorbox}[title=\large \insertblocktitle]
+}
 
-\defbeamertemplate*{block end}{mat theme}  
-{\end{tcolorbox}\vskip\smallskipamount}
+\defbeamertemplate*{block end}{mat theme}
+{
+  \end{tcolorbox}\vskip\smallskipamount
+}
 
 \defbeamertemplate*{headline}{mat theme}{%
   \leavevmode%
-    \begin{beamercolorbox}[wd=\paperwidth]{section in head/foot}%
-      \vskip5pt \hskip10pt \insertshorttitle \hfill \robotocondensed \insertsectionnavigationhorizontal{.8\textwidth}{\hskip0pt plus1filll}{} \vskip5pt%
-      \ifx\insertframesubtitle\@empty%
-        \pgfuseshading{b@matshade}
-      \fi
-    \end{beamercolorbox}%
-               %
-    %\begin{beamercolorbox}[wd=.4\paperwidth,ht=\@tempdimb,right]{subsection in head/foot}%
-    %  \vbox to\@tempdimb{\vfil\vfil\textbf{\footnotesize\insertshortinstitute~~}\vfil}%
-    %\end{beamercolorbox}% 
+  \begin{beamercolorbox}[wd=\paperwidth]{section in head/foot}%
+    \vskip5pt \hskip10pt \insertshorttitle \hfill \robotocondensed \insertsectionnavigationhorizontal{.8\textwidth}{\hskip0pt plus1filll}{} \vskip5pt%
+    \ifx\insertframesubtitle\@empty%
+      \pgfuseshading{b@matshade}
+    \fi
+  \end{beamercolorbox}%
+
+  %\begin{beamercolorbox}[wd=.4\paperwidth,ht=\@tempdimb,right]{subsection in head/foot}%
+  %  \vbox to\@tempdimb{\vfil\vfil\textbf{\footnotesize\insertshortinstitute~~}\vfil}%
+  %\end{beamercolorbox}% 
 }
 
 \setbeamerfont{frametitle}{size=\normalsize, parent=structure}
