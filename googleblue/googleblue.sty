@@ -2,7 +2,7 @@
 %
 % WisdomFusion <WisdomFusion@gmailcom>
 
-\usepackage[no-math]{fontspec}
+\usepackage{fontspec}
 \usepackage{roboto}
 
 
@@ -58,8 +58,6 @@
 
 
 
-
-
 % Colors
 %\definecolor{sapred}{RGB}{130,36,51}
 \definecolor{sapblue}{RGB}{0,103,120}
@@ -70,12 +68,12 @@
 \definecolor{matbluelight}{HTML}{BBDEFB}
 \definecolor{matbluedark}{HTML}{1976D2}
 
-\setbeamercolor{structure}{fg = matbluedark}
+\setbeamercolor{structure}{fg=matbluedark}
 %\setbeamercolor{frametitle}{parent=subsection in head/foot}
 %\setbeamercolor{frametitle right}{parent=section in head/foot}
 \definecolor{grey}{HTML}{51504A}
-\setbeamercolor{section in head/foot}{ bg=matbluedark, fg=white}
-\setbeamercolor{footline}{ bg=matbluedark}
+\setbeamercolor{section in head/foot}{bg=matbluedark, fg=white}
+\setbeamercolor{footline}{bg=matbluedark}
 \setbeamercolor{title in head/foot}{bg=matbluedark, fg=white}
 
 %\pgfdeclarehorizontalshading[frametitle.bg,frametitle right.bg]{beamer@frametitleshade}{\paperheight}{%
@@ -84,24 +82,22 @@
 
 %shadowing
 \AtBeginDocument{
-\pgfdeclareverticalshading{b@matshade}{\the\paperwidth}
-        {rgb(0pt)=(1,1,1); rgb(3pt)=(0.8,0.8,0.8);rgb(5pt)=(0.75,0.75,0.75)}
+  \pgfdeclareverticalshading{b@matshade}{\the\paperwidth}
+  {rgb(0pt)=(1,1,1); rgb(3pt)=(0.8,0.8,0.8);rgb(5pt)=(0.75,0.75,0.75)}
 }
 
 % Footline: AUTHOR | TITLE | DATE FRAMENUMBER
 
 \defbeamertemplate*{footline}{mat theme}{%
-\begin{beamercolorbox}[wd=\paperwidth,ht=5ex,dp=2.25ex]{title in head/foot}%
-\begin{minipage}[t]{0.48\textwidth}%
-\hskip10pt\insertshortauthor%
-\end{minipage}%
-\begin{minipage}[t]{0.48\textwidth}%
-%
-\hfill\insertframenumber{} / \inserttotalframenumber\hskip10pt\vfill%
-%
-\end{minipage}%
-\end{beamercolorbox}%
-\vfill%
+  \begin{beamercolorbox}[wd=\paperwidth, ht=4ex, dp=3ex]{title in head/foot}%
+    \begin{minipage}[t]{0.48\textwidth}%
+      \hskip10pt \insertshortauthor%
+    \end{minipage}%
+    \begin{minipage}[t]{0.48\textwidth}%
+      \hfill \insertframenumber{} / \inserttotalframenumber \hskip10pt \vfill%
+    \end{minipage}%
+  \end{beamercolorbox}%
+  \vfill%
 }
 
 \usepackage{tcolorbox}  
@@ -119,82 +115,74 @@
          } 
 \tcbset{                                               % set a custom tcolorbox  
         skin=enhanced,                                 % enables use of shadows
-        frame style={fill=matblue,drop shadow={myshadow}}, % sets the frame color and the shadow properties
+        frame style={fill=matblue, drop shadow={myshadow}}, % sets the frame color and the shadow properties
         bottom=5pt,                                    % distance between the body text and the bottom frame
         top=5pt,                                      % distance between the body text and the top frame
         boxrule=0mm,                                   % frame width
         bottomtitle=2mm,                               % distance between the title text and the bottom title frame               
         toptitle=2mm,                                  % distance between the title text and the top title frame
         lefttitle=10pt                                  % title text left margin
-}  
+}
 
 \setbeamercolor{block body}{bg=matbluelight, fg=black}
+
 \defbeamertemplate*{block begin}{mat theme}
-{
- \begin{tcolorbox}[title=\large \insertblocktitle]
-  }
+{\begin{tcolorbox}[title=\large \insertblocktitle]}
+
 \defbeamertemplate*{block end}{mat theme}  
 {\end{tcolorbox}\vskip\smallskipamount}
-
 
 \defbeamertemplate*{headline}{mat theme}{%
   \leavevmode%
     \begin{beamercolorbox}[wd=\paperwidth]{section in head/foot}%
-       \vskip5pt \hskip10pt \insertshorttitle \hfill \robotocondensed
- \insertsectionnavigationhorizontal{.8\textwidth}{\hskip0pt plus1filll}{}
-\vskip5pt%
+      \vskip5pt \hskip10pt \insertshorttitle \hfill \robotocondensed \insertsectionnavigationhorizontal{.8\textwidth}{\hskip0pt plus1filll}{} \vskip5pt%
       \ifx\insertframesubtitle\@empty%
-      \pgfuseshading{b@matshade}
+        \pgfuseshading{b@matshade}
       \fi
     \end{beamercolorbox}%
                %
     %\begin{beamercolorbox}[wd=.4\paperwidth,ht=\@tempdimb,right]{subsection in head/foot}%
     %  \vbox to\@tempdimb{\vfil\vfil\textbf{\footnotesize\insertshortinstitute~~}\vfil}%
     %\end{beamercolorbox}% 
-  
 }
-
 
 \setbeamerfont{frametitle}{size=\normalsize, parent=structure}
 
-
 \defbeamertemplate*{frametitle}{mat theme}{%
-\nointerlineskip%
-\setbeamercolor{titlebar}{fg=white,bg=matblue}%
-\begin{beamercolorbox}[wd=\paperwidth, ht=5ex]{titlebar}%
-\hskip10pt \robotocondensed\insertframetitle\vfill%
-     \pgfuseshading{b@matshade}%
-\end{beamercolorbox}
+  \nointerlineskip%
+  \setbeamercolor{titlebar}{fg=white, bg=matblue}%
+  \begin{beamercolorbox}[wd=\paperwidth, ht=5ex]{titlebar}%
+    \hskip10pt \robotocondensed \insertframetitle \vfill%
+    \pgfuseshading{b@matshade}%
+  \end{beamercolorbox}
 }
-  
-  
+
+
 \defbeamertemplate*{title page}{ru theme}[1][]
 {
-\nointerlineskip
+  \nointerlineskip
+  
+  \usebeamerfont{subtitle}
+  %\setbeamercolor{thead}{fg=white, bg=sapred}
+  \begin{beamercolorbox}[sep=2em, wd=\paperwidth, ht=2cm, dp=0.5cm, right]{thead}
+    \usebeamerfont{author}\insertauthor\par
+    \usebeamerfont{institute}\robotocondensed
+    \insertinstitute\par 
+  \end{beamercolorbox}
+  
+  \nointerlineskip
+  
+  \setbeamercolor{postit}{fg=white, bg=matblue}
+  \begin{beamercolorbox}[sep=2em, wd=\paperwidth, ht=3cm, dp=3cm]{postit}
+    \begin{minipage}[t]{0.8\textwidth}
+      \usebeamerfont{title} {\LARGE \inserttitle} \par
+      \usebeamerfont{subtitle} {\robotocondensed \large \insertsubtitle}
+    \end{minipage}%
 
-\usebeamerfont{subtitle}
-%\setbeamercolor{thead}{fg=white,bg=sapred}
-\begin{beamercolorbox}[sep=1em,wd=\paperwidth, ht=2.5cm, dp=0.5cm,right ]{thead}
-\usebeamerfont{author} \insertauthor\par
-\usebeamerfont{institute}\robotocondensed
-\insertinstitute\par 
-\end{beamercolorbox}
-\nointerlineskip
-
-
-\setbeamercolor{postit}{fg=white, bg=matblue}
-\begin{beamercolorbox}[sep=1em,wd=\paperwidth,ht=3cm,dp=3cm]{postit}
-\begin{minipage}[t]{0.6\textwidth}
-\usebeamerfont{title} {\Huge
- \inserttitle} \par
-\usebeamerfont{subtitle} {\robotocondensed
- \insertsubtitle}
-
-
-\end{minipage}%
-\begin{minipage}[t]{0.4\textwidth}
-\inserttitlegraphic
-\end{minipage}
-\end{beamercolorbox}
-%\setbeamercolor{postit}{fg=sapred}
+    \begin{minipage}[t]{0.4\textwidth}
+      \inserttitlegraphic
+    \end{minipage}
+  \end{beamercolorbox}
+  %\setbeamercolor{postit}{fg=sapred}
 }
+

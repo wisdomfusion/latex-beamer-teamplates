@@ -24,11 +24,13 @@
 }
 \lstset{escapechar=@,style=customsql}
 
-\title[yabeamer]{Yet Another LaTeX Beamer Template}
+\title[Beamer Tutorial]{A Beamer Tutorial in Beamer}
 
-\subtitle{make presentation easy}
+\subtitle{presentation made easy}
 
-\author[WisdomFusion]{WisdomFusion <WisdomFusion@gmail.com>}
+\author[WisdomFusion]{
+  \small \textcolor{gray}{WisdomFusion\\ <WisdomFusion@gmail.com>}
+}
 
 \date{\today}
 
@@ -39,25 +41,28 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{TOC}
+  \frametitle{Outline}
 
   \tableofcontents
 \end{frame}
 
+\setbeamercolor{background canvas}{bg=matblue}
+\setbeamercolor{normal text}{fg=white}
 \begin{frame}[plain, b]
   \centering
-  \huge Thanks
+  \Large \textcolor{white}{Thanks.}
   \normalsize
 
   \vspace*{\fill}
 
   \begin{beamercolorbox}[wd=\paperwidth]{section in head/foot}
     \centering
-    yabeamer
+    \vskip8pt
+    {\small Beamer -- powerful, flexible and nice-looking presentations using \LaTeX{}.}
     \vskip10pt
   \end{beamercolorbox}
   
 \end{frame}
 
-
 \end{document}
+
