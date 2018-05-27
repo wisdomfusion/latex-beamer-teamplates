@@ -1,0 +1,11 @@
+*.aux
+*latexmk
+*.log
+*.fls
+*.nav
+*.out
+*.snm
+*synctex.gz
+*.toc
+*.vrb
+.DS_Store

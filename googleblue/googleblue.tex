@@ -1,0 +1,63 @@
+% !TEX program = xelatex
+\documentclass{beamer}
+
+\usepackage[english]{babel}
+
+\usepackage{graphicx,hyperref,googleblue}
+\usepackage{braket}
+\usepackage{listings}
+
+\graphicspath{ {./figs/} }
+\setbeamercovered{transparent}
+
+\lstdefinestyle{customsql}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  xleftmargin=\parindent,
+  language=SQL,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+}
+\lstset{escapechar=@,style=customsql}
+
+\title[yabeamer]{Yet Another LaTeX Beamer Template}
+
+\subtitle{make presentation easy}
+
+\author[WisdomFusion]{WisdomFusion <WisdomFusion@gmail.com>}
+
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{TOC}
+
+  \tableofcontents
+\end{frame}
+
+\begin{frame}[plain, b]
+  \centering
+  \huge Thanks
+  \normalsize
+
+  \vspace*{\fill}
+
+  \begin{beamercolorbox}[wd=\paperwidth]{section in head/foot}
+    \centering
+    yabeamer
+    \vskip10pt
+  \end{beamercolorbox}
+  
+\end{frame}
+
+
+\end{document}
