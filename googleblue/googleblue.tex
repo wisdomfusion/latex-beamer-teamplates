@@ -1,40 +1,28 @@
 % !TEX program = xelatex
-\documentclass[aspectratio=169]{beamer}
-% 1610, 169, 149, 54, 43 and 32
-% By default, it is to 128mm by 96mm(4:3)
+\documentclass[aspectratio=169,utf8]{ctexbeamer}
+% use beamer if english only
+% aspectratio: 1610, 169, 149, 54, 43 and 32
+% By default, it is to 128mm by 96mm, 4:3
 
+\usepackage{fontspec}
 \usepackage[english]{babel}
-
 \usepackage{graphicx,hyperref,googleblue}
+\usepackage{xcolor}
 \usepackage{braket}
 \usepackage{listings}
 
 \graphicspath{ {./figs/} }
 \setbeamercovered{transparent}
 
-\lstdefinestyle{customsql}{
-  belowcaptionskip=1\baselineskip,
-  breaklines=true,
-  xleftmargin=\parindent,
-  language=SQL,
-  showstringspaces=false,
-  basicstyle=\footnotesize\ttfamily,
-  keywordstyle=\bfseries\color{green!40!black},
-  commentstyle=\itshape\color{purple!40!black},
-  identifierstyle=\color{blue},
-  stringstyle=\color{orange},
-}
-\lstset{escapechar=@,style=customsql}
 
-\title[Beamer Tutorial]{A Beamer Tutorial in Beamer}
-
-\subtitle{presentation made easy}
-
+\title[Beamer Tutorial]{A Beamer Tutorial in Beamer\\ Beamer 速成教程}
+\subtitle{presentation made easy 让演示文稿制作更简单}
 \author[WisdomFusion]{
+  \includegraphics[width=0.2cm]{figs/GitHub-Mark-Light-120px-plus.png}
   \small \textcolor{gray}{WisdomFusion\\ <WisdomFusion@gmail.com>}
 }
+\date{May, $2018$}
 
-\date{\today}
 
 \begin{document}
 
@@ -42,13 +30,16 @@
   \titlepage
 \end{frame}
 
+\addtocounter{framenumber}{-1}
+
 \begin{frame}
   \frametitle{Outline}
-
   \tableofcontents
 \end{frame}
 
-\section*{About Beamer}
+\part{介绍}
+
+\section*{关于 Beamer}
 \begin{frame}[t]
   \frametitle{About Beamer}
 
@@ -75,6 +66,7 @@
   \frametitle{Template}
 
   template
+
 \end{frame}
 
 \section*{Frame}
@@ -93,41 +85,52 @@
 
 \section*{Text}
 \begin{frame}
+  \frametitle{Text}
   Text
 \end{frame}
 
 \section*{Alignment and Spacing}
 \begin{frame}
+  \frametitle{Alightment and Spacing}
   align
 \end{frame}
 
 \section*{Lists}
 \begin{frame}
+  \frametitle{Lists}
   lists
 \end{frame}
 
 \section*{Tables}
 \begin{frame}
+  \frametitle{Tables}
   tables
 \end{frame}
 
 \section*{Graphics}
 \begin{frame}
+  \frametitle{Graphics}
   graph
 \end{frame}
 
 \section*{Themes}
 \begin{frame}
+  \frametitle{Themes}
   themes
 \end{frame}
 
 \section*{Transition}
 \begin{frame}
+  \frametitle{Transition}
   transition
 \end{frame}
 
+\addtocounter{framenumber}{-1}
+
+
 \setbeamercolor{background canvas}{bg=matblue}
 \setbeamercolor{normal text}{fg=white}
+\setbeamertemplate{navigation symbols}{}
 \begin{frame}[plain, b]
   \centering
   \Large \textcolor{white}{Thanks.}
@@ -137,12 +140,18 @@
 
   \begin{beamercolorbox}[wd=\paperwidth]{section in head/foot}
     \centering
+    \vskip3pt
+    {\small Beamer -- powerful, flexible and nice-looking presentations}
     \vskip8pt
-    {\small Beamer -- powerful, flexible and nice-looking presentations using \LaTeX{}.}
-    \vskip10pt
   \end{beamercolorbox}
   
 \end{frame}
 
+
 \end{document}
 
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

@@ -2,9 +2,7 @@
 %
 % WisdomFusion <WisdomFusion@gmailcom>
 
-\usepackage{fontspec}
 \usepackage{roboto}
-
 
 %%%
 %%% Inherit definitions from existing themes (DO NOT MODIFY THESE)
@@ -48,14 +46,15 @@
 \setbeamertemplate{blocks}[rounded=false]
 
 % Title page:
-\setbeamertemplate{title page}[default][colsep=-4bp,rounded=false]
+\setbeamertemplate{title page}[default][colsep=-4bp, rounded=false]
 
 % Part page:
-\setbeamertemplate{part page}[default][colsep=-4bp,rounded=false]
+\setbeamertemplate{part page}[default][colsep=-4bp, rounded=false]
 
 % Navigation symbols:
 %\setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{sidebar right}{}
+\setbeamertemplate{footline}{}
 
 % Colors
 %\definecolor{sapred}{RGB}{130,36,51}
@@ -75,28 +74,25 @@
 \setbeamercolor{footline}{bg=matbluedark}
 \setbeamercolor{title in head/foot}{bg=matbluedark, fg=white}
 
-%\pgfdeclarehorizontalshading[frametitle.bg,frametitle right.bg]{beamer@frametitleshade}{\paperheight}{%
-%  color(0pt)=(sapblue);
-%  color(\paperwidth)=(sapblue)}
-
-%shadowing
+% shadowing
 \AtBeginDocument{
   \pgfdeclareverticalshading{b@matshade}{\the\paperwidth}
-  {rgb(0pt)=(1,1,1); rgb(3pt)=(0.8,0.8,0.8);rgb(5pt)=(0.75,0.75,0.75)}
+  {rgb(0pt)=(1,1,1); rgb(2pt)=(0.8,0.8,0.8); rgb(3pt)=(0.75,0.75,0.75)}
 }
 
-% Footline: AUTHOR | TITLE | DATE FRAMENUMBER
-\defbeamertemplate*{footline}{mat theme}{%
-  \begin{beamercolorbox}[wd=\paperwidth, ht=4ex, dp=3ex]{title in head/foot}%
-    \begin{minipage}{0.48\textwidth}%
-      \hskip10pt \usebeamertemplate***{navigation symbols}%
-    \end{minipage}%
-    \begin{minipage}{0.48\textwidth}%
-      \flushright \insertframenumber{} / \inserttotalframenumber \hskip10pt%
-    \end{minipage}%
-  \end{beamercolorbox}%
-  \vfill%
+\AtBeginPart{
+  {% start a group to keep the template change local
+    \setbeamercolor{background canvas}{bg=matblue, fg=white}
+    \frame{\partpage}
+
+    \setbeamertemplate{part page}{
+      \begin{beamercolorbox}[center, wd=\textwidth]{part title}
+        \usebeamerfont{part title}\insertpart
+      \end{beamercolorbox}
+    }
+  }% end group
 }
+
 
 \usepackage{tcolorbox}  
 \tcbuselibrary{skins}                                 % preamble 
@@ -105,11 +101,11 @@
 
 \tikzset{myshadow/.style={                            % custom shadow with tikz
     opacity=.16,
-    shadow xshift=0.01,
-    shadow yshift=-0.02,
+    shadow xshift=0.03,
+    shadow yshift=-0.03,
     shade,
     shading=axis,
-    shading angle=230
+    shading angle=315
   }
 } 
 
@@ -124,8 +120,8 @@
   lefttitle=10pt                                      % title text left margin
 }
 
-\setbeamercolor{block body}{bg=matbluelight, fg=black}
 
+\setbeamercolor{block body}{bg=matbluelight, fg=black}
 \defbeamertemplate*{block begin}{mat theme}
 {
   \begin{tcolorbox}[title=\large \insertblocktitle]
@@ -136,57 +132,86 @@
   \end{tcolorbox}\vskip\smallskipamount
 }
 
-\defbeamertemplate*{headline}{mat theme}{%
-  \leavevmode%
-  \begin{beamercolorbox}[wd=\paperwidth]{section in head/foot}%
-    \vskip5pt \hskip10pt \insertshorttitle \hfill \robotocondensed \insertsectionnavigationhorizontal{.8\textwidth}{\hskip0pt plus1filll}{} \vskip5pt%
-    \ifx\insertframesubtitle\@empty%
-      \pgfuseshading{b@matshade}
-    \fi
-  \end{beamercolorbox}%
 
-  %\begin{beamercolorbox}[wd=.4\paperwidth,ht=\@tempdimb,right]{subsection in head/foot}%
-  %  \vbox to\@tempdimb{\vfil\vfil\textbf{\footnotesize\insertshortinstitute~~}\vfil}%
-  %\end{beamercolorbox}% 
-}
-
-\setbeamerfont{frametitle}{size=\normalsize, parent=structure}
-
-\defbeamertemplate*{frametitle}{mat theme}{%
-  \nointerlineskip%
-  \setbeamercolor{titlebar}{fg=white, bg=matblue}%
-  \begin{beamercolorbox}[wd=\paperwidth, ht=5ex]{titlebar}%
-    \hskip10pt \robotocondensed \insertframetitle \vfill%
-    \pgfuseshading{b@matshade}%
-  \end{beamercolorbox}
-}
-
-
-\defbeamertemplate*{title page}{ru theme}[1][]
+\defbeamertemplate*{headline}{mat theme}
 {
-  \nointerlineskip
-  
-  \usebeamerfont{subtitle}
-  %\setbeamercolor{thead}{fg=white, bg=sapred}
-  \begin{beamercolorbox}[sep=2em, wd=\paperwidth, ht=2cm, dp=0.5cm, right]{thead}
-    \usebeamerfont{author}\insertauthor\par
-    \usebeamerfont{institute}\robotocondensed
-    \insertinstitute\par 
-  \end{beamercolorbox}
-  
-  \nointerlineskip
-  
-  \setbeamercolor{postit}{fg=white, bg=matblue}
-  \begin{beamercolorbox}[sep=2em, wd=\paperwidth, ht=3cm, dp=3cm]{postit}
-    \begin{minipage}[t]{0.8\textwidth}
-      \usebeamerfont{title} {\LARGE \inserttitle} \par
-      \usebeamerfont{subtitle} {\robotocondensed \large \insertsubtitle}
-    \end{minipage}%
+  \leavevmode
+  \begin{beamercolorbox}[wd=\paperwidth]{section in head/foot}
+    \vskip5pt
+    \hskip10pt
+    \insertshorttitle
+    \hfill
+    \robotocondensed
+    \insertsectionnavigationhorizontal{.8\textwidth}{\hskip0pt plus1fill}{}
+    \vskip5pt
 
-    \begin{minipage}[t]{0.4\textwidth}
-      \inserttitlegraphic
+    \ifx\insertframesubtitle\@empty
+      %\pgfuseshading{b@matshade}
+    \fi
+  \end{beamercolorbox}
+}
+
+
+% footline
+\defbeamertemplate*{footline}{mat theme}
+{
+  \begin{beamercolorbox}[wd=\paperwidth, ht=2.25ex, dp=1.25ex]{title in head/foot}
+    \begin{minipage}{0.48\textwidth}
+      \hskip10pt \usebeamertemplate***{navigation symbols}
+    \end{minipage}
+    \begin{minipage}{0.48\textwidth}
+      \flushright \insertframenumber\,/\,\inserttotalframenumber \hskip10pt
     \end{minipage}
   \end{beamercolorbox}
-  %\setbeamercolor{postit}{fg=sapred}
+}
+
+
+% title page
+\defbeamertemplate*{title page}{my theme}
+{
+  % title
+  \setbeamercolor{postit}{fg=white, bg=matblue}
+  \begin{beamercolorbox}[sep=2em, wd=\paperwidth, ht=5cm]{matblue}
+    \begin{minipage}[t]{\textwidth}
+      \usebeamerfont{title} {\huge \inserttitle} \par
+      \vskip4pt
+      \usebeamerfont{subtitle} {\robotocondensed \small \insertsubtitle}
+    \end{minipage}
+  \end{beamercolorbox}
+
+  \nointerlineskip
+
+  % author
+  \setbeamercolor{postit}{fg=white, bg=matblue}
+  \usebeamerfont{subtitle}
+  \begin{beamercolorbox}[sep=2em, wd=\paperwidth, dp=0.5cm, right]{matblue}
+    \usebeamerfont{author} \insertauthor
+  \end{beamercolorbox}
+}
+
+
+% part page
+\setbeamertemplate*{part page}
+{
+  \nointerlineskip
+
+  \setbeamercolor{postit}{fg=white, bg=matblue}
+  \begin{beamercolorbox}[wd=\paperwidth, ht=10pt, dp=5pt]{part title}
+    \centering
+    \usebeamerfont{part title} \insertpart \vfill
+  \end{beamercolorbox}
+}
+
+
+% frametitle
+\setbeamerfont{frametitle}{size=\normalsize, parent=structure}
+\defbeamertemplate*{frametitle}{mat theme}{
+  \nointerlineskip
+
+  \setbeamercolor{titlebar}{fg=white, bg=matblue}
+  \begin{beamercolorbox}[wd=\paperwidth, ht=5.25ex]{titlebar}
+    \hskip10pt \robotocondensed \insertframetitle \vfill
+    \pgfuseshading{b@matshade}
+  \end{beamercolorbox}
 }
 
