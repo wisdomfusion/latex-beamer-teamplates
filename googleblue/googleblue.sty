@@ -146,7 +146,7 @@
     \vskip5pt
 
     \ifx\insertframesubtitle\@empty
-      %\pgfuseshading{b@matshade}
+      \pgfuseshading{b@matshade}
     \fi
   \end{beamercolorbox}
 }
@@ -160,18 +160,30 @@
       \hskip10pt \usebeamertemplate***{navigation symbols}
     \end{minipage}
     \begin{minipage}{0.48\textwidth}
-      \flushright \insertframenumber\,/\,\inserttotalframenumber \hskip10pt
+      \flushright \insertframenumber\,/\,\inserttotalframenumber
     \end{minipage}
   \end{beamercolorbox}
 }
 
 
 % title page
-\defbeamertemplate*{title page}{my theme}
+\defbeamertemplate*{title page}{my theme}[1][]
 {
+
+  \nointerlineskip
+
+  % author
+  \usebeamerfont{subtitle}
+  \begin{beamercolorbox}[sep=2em, wd=\paperwidth, dp=0.5cm, right]{thead}
+    \usebeamerfont{author}
+    \insertauthor
+  \end{beamercolorbox}
+
+  \nointerlineskip
+
   % title
   \setbeamercolor{postit}{fg=white, bg=matblue}
-  \begin{beamercolorbox}[sep=2em, wd=\paperwidth, ht=5cm]{matblue}
+  \begin{beamercolorbox}[sep=2em, wd=\paperwidth, ht=3.5cm, dp=2.25cm]{postit}
     \begin{minipage}[t]{\textwidth}
       \usebeamerfont{title} {\huge \inserttitle} \par
       \vskip4pt
@@ -179,27 +191,6 @@
     \end{minipage}
   \end{beamercolorbox}
 
-  \nointerlineskip
-
-  % author
-  \setbeamercolor{postit}{fg=white, bg=matblue}
-  \usebeamerfont{subtitle}
-  \begin{beamercolorbox}[sep=2em, wd=\paperwidth, dp=0.5cm, right]{matblue}
-    \usebeamerfont{author} \insertauthor
-  \end{beamercolorbox}
-}
-
-
-% part page
-\setbeamertemplate*{part page}
-{
-  \nointerlineskip
-
-  \setbeamercolor{postit}{fg=white, bg=matblue}
-  \begin{beamercolorbox}[wd=\paperwidth, ht=10pt, dp=5pt]{part title}
-    \centering
-    \usebeamerfont{part title} \insertpart \vfill
-  \end{beamercolorbox}
 }
 
 
