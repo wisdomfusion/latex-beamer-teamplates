@@ -4,19 +4,27 @@
 % aspectratio: 1610, 169, 149, 54, 43 and 32
 % By default, it is to 128mm by 96mm, 4:3
 
-\usepackage{fontspec}
 \usepackage[english]{babel}
 \usepackage{graphicx,hyperref,googleblue}
 \usepackage{xcolor}
 \usepackage{braket}
 \usepackage{listings}
 
-\graphicspath{ {./figs/} }
+%\usepackage{ebgaramond}
+\usefonttheme{serif}
+\usepackage{fontspec}
+\setmainfont{Helvetica Neue}
+%\setmainfont{Arial}
+%\setCJKmainfont[BoldFont=STHeiti,ItalicFont=STKaiti]{STHeiti}
+\setCJKmainfont[BoldFont=STHeiti,ItalicFont=STKaiti]{STSong}
+\setCJKsansfont[BoldFont=STHeiti]{STXihei}
+\setCJKmonofont{STKaiti}
+
 \setbeamercovered{transparent}
 
 
 \title[Beamer Tutorial]{
-  A Beamer Tutorial in Beamer
+  A Beamer Tutorial in Beamer 中文
 }
 \subtitle{presentation made easy}
 \author[WisdomFusion]{
@@ -42,11 +50,15 @@
 
 \section*{Introduction}
 \begin{frame}[t]
-  \frametitle{About Beamer}
+  \frametitle{简介}
 
+  Beamer,
+  
   \begin{block}{What is Beamer?}
     Beamer,
   \end{block}
+
+  presentation
   
 \end{frame}
 

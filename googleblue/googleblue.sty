@@ -2,8 +2,6 @@
 %
 % WisdomFusion <WisdomFusion@gmailcom>
 
-\usepackage{roboto}
-
 %%%
 %%% Inherit definitions from existing themes (DO NOT MODIFY THESE)
 %%%
@@ -124,7 +122,8 @@
 \setbeamercolor{block body}{bg=matbluelight, fg=black}
 \defbeamertemplate*{block begin}{mat theme}
 {
-  \begin{tcolorbox}[title=\large \insertblocktitle]
+  \vskip\smallskipamount
+  \begin{tcolorbox}[title=\small \insertblocktitle]
 }
 
 \defbeamertemplate*{block end}{mat theme}
@@ -141,7 +140,6 @@
     \hskip10pt
     \insertshorttitle
     \hfill
-    \robotocondensed
     \insertsectionnavigationhorizontal{.8\textwidth}{\hskip0pt plus1fill}{}
     \vskip5pt
 
@@ -187,7 +185,7 @@
     \begin{minipage}[t]{\textwidth}
       \usebeamerfont{title} {\huge \inserttitle} \par
       \vskip4pt
-      \usebeamerfont{subtitle} {\robotocondensed \small \insertsubtitle}
+      \usebeamerfont{subtitle} {\small \insertsubtitle}
     \end{minipage}
   \end{beamercolorbox}
 
@@ -200,8 +198,8 @@
   \nointerlineskip
 
   \setbeamercolor{titlebar}{fg=white, bg=matblue}
-  \begin{beamercolorbox}[wd=\paperwidth, ht=5.25ex]{titlebar}
-    \hskip10pt \robotocondensed \insertframetitle \vfill
+  \begin{beamercolorbox}[wd=\paperwidth, ht=5.5ex]{titlebar}
+    \hskip10pt \textbf{\insertframetitle} \vfill
     \pgfuseshading{b@matshade}
   \end{beamercolorbox}
 }
