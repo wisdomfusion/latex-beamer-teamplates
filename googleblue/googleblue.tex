@@ -10,26 +10,41 @@
 \usepackage{braket}
 \usepackage{listings}
 
+\lstset{
+  upquote,
+  keepspaces=true,
+  columns=spaceflexible,
+  numbers=left,
+  basicstyle=\ttfamily\scriptsize,
+  numberstyle=\color{gray}\ttfamily\tiny,
+  keywordstyle=\color{blue}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  commentstyle=\color{teal}\ttfamily,
+  emphstyle=\color{blue}\bfseries,
+  frame=none
+}
+
+\usepackage{multicol}
+\setlength\columnsep{10pt} % This is the default columnsep
+
+\usepackage{setspace}
+
 %\usepackage{ebgaramond}
 \usefonttheme{serif}
 \usepackage{fontspec}
-\setmainfont{Helvetica Neue}
-%\setmainfont{Arial}
+%\setmainfont{Helvetica Neue}
+\setmainfont{Arial}
+\setCJKmainfont{Microsoft YaHei}
 %\setCJKmainfont[BoldFont=STHeiti,ItalicFont=STKaiti]{STHeiti}
-\setCJKmainfont[BoldFont=STHeiti,ItalicFont=STKaiti]{STSong}
-\setCJKsansfont[BoldFont=STHeiti]{STXihei}
-\setCJKmonofont{STKaiti}
+%\setCJKsansfont[BoldFont=STHeiti]{STXihei}
+%\setCJKmonofont{STKaiti}
 
 \setbeamercovered{transparent}
 
 
-\title[Beamer Tutorial]{
-  A Beamer Tutorial in Beamer 中文
-}
-\subtitle{presentation made easy}
-\author[WisdomFusion]{
-  \scriptsize \textcolor{gray}{WisdomFusion\\ <WisdomFusion@gmail.com>}
-}
+\title[Beamer Tutorial]{Beamer in a Nutshell}
+\subtitle{presentation with \LaTeX{} made easy}
+\author[WisdomFusion]{\scriptsize \textcolor{gray}{WisdomFusion\\ <WisdomFusion@gmail.com>}}
 \date{May, $2018$}
 
 
@@ -44,21 +59,39 @@
 
 \begin{frame}
   \frametitle{Outline}
-  \tableofcontents
+
+  \centering
+
+  \begin{minipage}{.75\textwidth}
+    % \doublespacing
+    % \onehalfspacing
+    \setstretch{1.5}
+
+    \begin{columns}[t]
+      \begin{column}{.5\textwidth}
+        \tableofcontents[sections={1-6}]
+      \end{column}
+      \begin{column}{.5\textwidth}
+        \tableofcontents[sections={7-12}]
+      \end{column}      
+    \end{columns}
+
+    \setstretch{1.5}
+    % \singlespacing
+  \end{minipage}
+
 \end{frame}
 
 
-\section*{Introduction}
-\begin{frame}[t]
-  \frametitle{简介}
+\section{Introduction}
+\begin{frame}
+  \frametitle{What's Beamer?}
 
-  Beamer,
-  
-  \begin{block}{What is Beamer?}
-    Beamer,
-  \end{block}
-
-  presentation
+  \begin{itemize}
+    \item Beamer is a fexible \LaTeX{} class for making slides and presentations.
+    \item It supports functionality for making PDF slides complete with colors, overlays, environments, themes, transitions, etc.
+    \item Adds a couple new features to the commands you've been working with.
+  \end{itemize}
   
 \end{frame}
 
@@ -68,71 +101,277 @@
 
   \begin{itemize}
     \item The standard commands of \LaTeX{} also work in Beamer. If you can write basic \LaTeX{}, you can easily make a Beamer presentation.
-    \item A table of contents will automatically be created, complete with clickable links to each section and subsection you create in your presentation.
+    \item You can easily create overlays, themes allow you to change the appearance of your presentation to suit your purposes.
     \item The layout, colors, and fonts used in a presentation can easily be changed globally, but you also have control over the most minute detail.
   \end{itemize}
   
 \end{frame}
 
-\section*{Template}
 \begin{frame}
+  \frametitle{Advantages of Beamer}
+
+  \begin{itemize}
+    \item Each theme is designed to be highly usable and readable. This makes the presentation more professional looking and easier for the audience to follow.
+    \item The final output is typically a \alert{.pdf} file. Viewer applications for this format exist for virtually every platform.
+    \item \alert{Your presentation will look exactly the same no matter which computer or viewer program is being used.}
+  \end{itemize}
+  
+\end{frame}
+
+\section{Template}
+\begin{frame}[fragile]
   \frametitle{Template}
 
-  template
+  \begin{columns}[t]
+    \begin{column}{.5\textwidth}
+
+\begin{lstlisting}[language=TeX]
+% !TEX program = xelatex
+\documentclass[aspectratio=169,utf8]{ctexbeamer}
+
+\usepackage{graphicx,hyperref}
+\usepackage{xcolor}
+\usefonttheme{serif}
+\usepackage{fontspec}
+\setmainfont{Helvetica Neue}
+\setCJKmainfont{PingFang SC}
+
+\title[short title]{long title}
+\subtitle[short subtitle]{long subtitle}
+\author[short name]{long name}
+
+\end{lstlisting}
+
+        $\longrightarrow$
+    \end{column}
+
+    \begin{column}{.35\textwidth}
+
+\begin{lstlisting}[language=TeX, firstnumber=14]
+% \begin{document}
+% \begin{frame}
+%   \titlepage
+% \end{frame}
+% \begin{frame}
+%   \frametitle{Outline}
+%   \tableofcontents
+% \end{frame}
+% \section{Some Section}
+% \begin{frame}
+%   \frametitle{Section Title}
+% 
+%   Section content
+% \end{frame}
+% \end{document}
+\end{lstlisting}
+      
+    \end{column}
+    
+  \end{columns}
 
 \end{frame}
 
-\section*{Frame}
 \begin{frame}
-  \frametitle{Frame}
+  \frametitle{Insert Title Information}
 
-  frame
+  \begin{block}{Commands To Change}
+    \texttt{
+      \begin{itemize}
+      \item \textbackslash{}title[\alert{short title}]\{\alert{long title}\}
+      \item \textbackslash{}subtitle[\alert{short subtitle}]\{\alert{long subtitle}\}
+      \item \textbackslash{}author[\alert{short name}]\{\alert{long name}\}
+      \item \textbackslash{}date[\alert{short date}]\{\alert{long date}\}
+      \item \textbackslash{}institution[\alert{short name}]\{\alert{long name}\}
+      \end{itemize}
+    }
+  \end{block}
+    
 \end{frame}
 
-\section*{Sections}
+\section{Frames}
+\begin{frame}
+  \frametitle{Frames}
+
+  \begin{itemize}
+  \item Each Beamer project is made up of a series of frames.
+  \item Each frame produces one or more slides, depending on the slide’s overlays, which will be discussed later.
+  \end{itemize}
+
+%A Basic Frame
+%\begin{frame}[<alignment>]
+%\frametitle{Frame Title Goes Here}
+%Frame body text and/or LATEX code
+%\end{frame}
+      
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Frames}
+
+  Frames are very simple to make. Simply write your own text or \LaTeX{} code between the begin/end frame commands.
+
+  The alignment option is centered \lstinline{[c]} by default. The values \lstinline{[t]} (top align) and \lstinline{[b]} (bottom align) are also accepted.
+
+%A Basic Frame
+%\begin{frame}[t]
+%\frametitle{Algorithmic Combinatorics on Words}
+%\textit{Words}, or strings of symbols over..
+%\end{frame}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Frames}
+
+  \begin{itemize}
+  \item The \lstinline{[plain]} option for the frame environment causes the headlines, footlines, and sidebars to be suppressed. This can be useful for showing large pictures.
+  \item If you already have a \LaTeX{} document, you can simply wrap \lstinline{\begin{frame}} and \lstinline{\end{frame}} commands around the information you want to present.
+  \end{itemize}
+\end{frame}
+
+\section{Sections}
 \begin{frame}
   \frametitle{Sections and Subsections}
 
-  sections and subsections
+  \begin{itemize}
+  \item Presentations are divided into sections, subsections, and sub-subsections.
+  \item Each call to the \lstinline{\section{section name}}, \lstinline{\subsection{subsection name}}, or \lstinline{\subsubsection{sub-subsection name}} command:
+    \begin{itemize}
+    \item Inserts a new entry into the table of contents at the appropriate tree-level.
+    \item Inserts a new entry into the navigation bars.
+    \item Does not create a frame heading.
+    \end{itemize}
+  \item Another version of the command, \lstinline{\subsection*{section name}}, only adds an entry in the navigation bars, \textit{not} the table of contents.
+  \end{itemize}
+
 \end{frame}
 
-\section*{Text}
 \begin{frame}
-  \frametitle{Text}
-  Text
+  \frametitle{Sections and Subsections}
+
+  Section specifications are declared between the frames, so they have no direct effect on what is shown inside each frame.
+
+%Example
+%...
+%\end{frame}
+%\section{Fine and Wilf’s Theorem}
+%\subsection{The Case of Two or Three Holes}
+%\subsubsection{Definition 3.7}
+%\begin{frame}
+%...
+
 \end{frame}
 
-\section*{Styles}
+
+\section{Text}
 \begin{frame}
-  \frametitle{Alightment and Spacing}
+  \frametitle{Common Text Commands and Environments}
+
+  You can use the same text commands and environments in Beamer that you do in \LaTeX{} to change the way your text is displayed.
+
+  \begin{block}{Common Text Commands}
+    TODO
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Verbatim Text}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Semiverbatim Text}
+  
+\end{frame}
+
+
+\section{Styles}
+
+\begin{frame}
+  \frametitle{Font Size}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Font Families}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Alightment}
   align
 \end{frame}
 
-\section*{Lists}
+\begin{frame}
+  \frametitle{Spacing}
+  spacing
+\end{frame}
+
+
+\section{Lists}
 \begin{frame}
   \frametitle{Lists}
   lists
 \end{frame}
 
-\section*{Tables}
+\begin{frame}
+  \frametitle{Lists - Itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Lists - Enumerate}
+
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Lists - Description}
+\end{frame}
+
+
+\section{Overlays}
+\begin{frame}
+  \frametitle{Overlays}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Overlays - Pause}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Overlays - Specifications}
+\end{frame}
+
+\section{Tables}
 \begin{frame}
   \frametitle{Tables}
   tables
 \end{frame}
 
-\section*{Graphics}
+\section{Structures}
+
+\begin{frame}
+  \frametitle{Blocks}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Text Boxes}
+\end{frame}
+
+\section{Graphics}
 \begin{frame}
   \frametitle{Graphics}
   graph
 \end{frame}
 
-\section*{Themes}
-\begin{frame}
-  \frametitle{Themes}
-  themes
-\end{frame}
 
-\section*{Transition}
+\section{Transition}
 \begin{frame}
   \frametitle{Transition}
   transition
