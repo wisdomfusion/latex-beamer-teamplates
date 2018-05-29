@@ -88,6 +88,7 @@
   \frametitle{What's Beamer?}
 
   \begin{itemize}
+    \setlength{\itemsep}{8pt}
     \item Beamer is a fexible \LaTeX{} class for making slides and presentations.
     \item It supports functionality for making PDF slides complete with colors, overlays, environments, themes, transitions, etc.
     \item Adds a couple new features to the commands you've been working with.
@@ -100,6 +101,7 @@
   \frametitle{Advantages of Beamer}
 
   \begin{itemize}
+    \setlength{\itemsep}{8pt}
     \item The standard commands of \LaTeX{} also work in Beamer. If you can write basic \LaTeX{}, you can easily make a Beamer presentation.
     \item You can easily create overlays, themes allow you to change the appearance of your presentation to suit your purposes.
     \item The layout, colors, and fonts used in a presentation can easily be changed globally, but you also have control over the most minute detail.
@@ -111,6 +113,7 @@
   \frametitle{Advantages of Beamer}
 
   \begin{itemize}
+    \setlength{\itemsep}{8pt}
     \item Each theme is designed to be highly usable and readable. This makes the presentation more professional looking and easier for the audience to follow.
     \item The final output is typically a \alert{.pdf} file. Viewer applications for this format exist for virtually every platform.
     \item \alert{Your presentation will look exactly the same no matter which computer or viewer program is being used.}
@@ -175,15 +178,19 @@
   \frametitle{Insert Title Information}
 
   \begin{block}{Commands To Change}
-    \texttt{
-      \begin{itemize}
-      \item \textbackslash{}title[\alert{short title}]\{\alert{long title}\}
-      \item \textbackslash{}subtitle[\alert{short subtitle}]\{\alert{long subtitle}\}
-      \item \textbackslash{}author[\alert{short name}]\{\alert{long name}\}
-      \item \textbackslash{}date[\alert{short date}]\{\alert{long date}\}
-      \item \textbackslash{}institution[\alert{short name}]\{\alert{long name}\}
-      \end{itemize}
-    }
+    \tt
+    \begin{itemize}
+      \item
+        \textbackslash{}title[\alert{short title}]\{\alert{long title}\}
+      \item
+        \textbackslash{}subtitle[\alert{short subtitle}]\{\alert{long subtitle}\}
+      \item
+        \textbackslash{}author[\alert{short name}]\{\alert{long name}\}
+      \item
+        \textbackslash{}date[\alert{short date}]\{\alert{long date}\}
+      \item
+        \textbackslash{}institution[\alert{short name}]\{\alert{long name}\}
+    \end{itemize}
   \end{block}
     
 \end{frame}
@@ -193,8 +200,9 @@
   \frametitle{Frames}
 
   \begin{itemize}
-  \item Each Beamer project is made up of a series of frames.
-  \item Each frame produces one or more slides, depending on the slide’s overlays, which will be discussed later.
+    \setlength{\itemsep}{8pt}
+    \item Each Beamer project is made up of a series of frames.
+    \item Each frame produces one or more slides, depending on the slide’s overlays, which will be discussed later.
   \end{itemize}
 
 %A Basic Frame
@@ -211,7 +219,7 @@
 
   Frames are very simple to make. Simply write your own text or \LaTeX{} code between the begin/end frame commands.
 
-  The alignment option is centered \lstinline{[c]} by default. The values \lstinline{[t]} (top align) and \lstinline{[b]} (bottom align) are also accepted.
+  The alignment option is centered {\tt [c]} by default. The values {\tt [t]} (top align) and {\tt [b]} (bottom align) are also accepted.
 
 %A Basic Frame
 %\begin{frame}[t]
@@ -222,28 +230,31 @@
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Frames}
 
   \begin{itemize}
-  \item The \lstinline{[plain]} option for the frame environment causes the headlines, footlines, and sidebars to be suppressed. This can be useful for showing large pictures.
-  \item If you already have a \LaTeX{} document, you can simply wrap \lstinline{\begin{frame}} and \lstinline{\end{frame}} commands around the information you want to present.
+    \setlength{\itemsep}{8pt}
+    \item The {\tt [plain]} option for the frame environment causes the headlines, footlines, and sidebars to be suppressed. This can be useful for showing large pictures.
+    \item If you already have a \LaTeX{} document, you can simply wrap {\tt \verb|\begin{frame}|} and {\tt \verb|\end{frame}|} commands around the information you want to present.
   \end{itemize}
 \end{frame}
 
 \section{Sections}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Sections and Subsections}
 
   \begin{itemize}
-  \item Presentations are divided into sections, subsections, and sub-subsections.
-  \item Each call to the \lstinline{\section{section name}}, \lstinline{\subsection{subsection name}}, or \lstinline{\subsubsection{sub-subsection name}} command:
-    \begin{itemize}
-    \item Inserts a new entry into the table of contents at the appropriate tree-level.
-    \item Inserts a new entry into the navigation bars.
-    \item Does not create a frame heading.
-    \end{itemize}
-  \item Another version of the command, \lstinline{\subsection*{section name}}, only adds an entry in the navigation bars, \textit{not} the table of contents.
+    \setlength{\itemsep}{8pt}
+    \item Presentations are divided into sections, subsections, and sub-subsections.
+    \item Each call to the {\tt \verb|\section{section name}|}, {\tt \verb|\subsection{subsection name}|}, or {\tt \verb|\subsubsection{sub-subsection name}|} command:
+      \begin{itemize}
+        \item Inserts a new entry into the table of contents at the appropriate tree-level.
+        \item Inserts a new entry into the navigation bars.
+        \item Does not create a frame heading.
+      \end{itemize}
+    \item Another version of the command, {\tt \verb|\subsection*{section name}|}, only adds an entry in the navigation bars, \textit{not} the table of contents.
   \end{itemize}
 
 \end{frame}
