@@ -9,6 +9,7 @@
 \usepackage{xcolor}
 \usepackage{braket}
 \usepackage{listings}
+\usepackage{tabularx}
 
 \lstset{
   upquote,
@@ -84,6 +85,7 @@
 
 
 \section{Introduction}
+
 \begin{frame}
   \frametitle{What's Beamer?}
 
@@ -109,6 +111,7 @@
   
 \end{frame}
 
+
 \begin{frame}
   \frametitle{Advantages of Beamer}
 
@@ -122,13 +125,14 @@
 \end{frame}
 
 \section{Template}
+
 \begin{frame}[fragile]
   \frametitle{Template}
 
   \begin{columns}[t]
     \begin{column}{.5\textwidth}
-
-\begin{lstlisting}[language=TeX]
+      \scriptsize
+\begin{verbatim}
 % !TEX program = xelatex
 \documentclass[aspectratio=169,utf8]{ctexbeamer}
 
@@ -142,31 +146,31 @@
 \title[short title]{long title}
 \subtitle[short subtitle]{long subtitle}
 \author[short name]{long name}
+\end{verbatim}
 
-\end{lstlisting}
-
-        $\longrightarrow$
+      $\longrightarrow$
+      
     \end{column}
 
     \begin{column}{.35\textwidth}
-
-\begin{lstlisting}[language=TeX, firstnumber=14]
-% \begin{document}
-% \begin{frame}
-%   \titlepage
-% \end{frame}
-% \begin{frame}
-%   \frametitle{Outline}
-%   \tableofcontents
-% \end{frame}
-% \section{Some Section}
-% \begin{frame}
-%   \frametitle{Section Title}
-% 
-%   Section content
-% \end{frame}
-% \end{document}
-\end{lstlisting}
+      \scriptsize
+\begin{verbatim}
+%\begin{document}
+%\begin{frame}
+%  \titlepage
+%\end{frame}
+%\begin{frame}
+%  \frametitle{Outline}
+%  \tableofcontents
+%\end{frame}
+%\section{Some Section}
+%\begin{frame}
+%  \frametitle{Section Title}
+%
+%  Section content
+%\end{frame}
+%\end{document}
+\end{verbatim}
       
     \end{column}
     
@@ -174,11 +178,12 @@
 
 \end{frame}
 
+
 \begin{frame}
   \frametitle{Insert Title Information}
 
   \begin{block}{Commands To Change}
-    \tt
+    \texttt{
     \begin{itemize}
       \item
         \textbackslash{}title[\alert{short title}]\{\alert{long title}\}
@@ -190,42 +195,53 @@
         \textbackslash{}date[\alert{short date}]\{\alert{long date}\}
       \item
         \textbackslash{}institution[\alert{short name}]\{\alert{long name}\}
-    \end{itemize}
+      \end{itemize}
+    }
   \end{block}
     
 \end{frame}
 
+
 \section{Frames}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Frames}
 
   \begin{itemize}
     \setlength{\itemsep}{8pt}
     \item Each Beamer project is made up of a series of frames.
-    \item Each frame produces one or more slides, depending on the slide’s overlays, which will be discussed later.
+    \item Each frame produces one or more slides, depending on the slide's overlays, which will be discussed later.
   \end{itemize}
 
-%A Basic Frame
+  \begin{block}{A Basic Frame}
+    \begin{verbatim}
 %\begin{frame}[<alignment>]
-%\frametitle{Frame Title Goes Here}
-%Frame body text and/or LATEX code
+%  \frametitle{Frame Title Goes Here}
+%  Frame body text and/or LATEX code
 %\end{frame}
-      
+    \end{verbatim}
+  \end{block}
+  
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Frames}
 
-  Frames are very simple to make. Simply write your own text or \LaTeX{} code between the begin/end frame commands.
+  \begin{itemize}
+    \setlength{\itemsep}{8pt}
+    \item Frames are very simple to make. Simply write your own text or \LaTeX{} code between the begin/end frame commands.
+    \item The alignment option is centered \texttt{[c]} by default. The values \texttt{[t]} (top align) and \texttt{[b]} (bottom align) are also accepted.
+  \end{itemize}
 
-  The alignment option is centered {\tt [c]} by default. The values {\tt [t]} (top align) and {\tt [b]} (bottom align) are also accepted.
-
-%A Basic Frame
+  \begin{block}{A Basic Frame}
+\begin{verbatim}
 %\begin{frame}[t]
-%\frametitle{Algorithmic Combinatorics on Words}
-%\textit{Words}, or strings of symbols over..
+%  \frametitle{Algorithmic Combinatorics on Words}
+%  \textit{Words}, or strings of symbols over..
 %\end{frame}
+\end{verbatim}
+  \end{block}
 
 \end{frame}
 
@@ -235,10 +251,36 @@
 
   \begin{itemize}
     \setlength{\itemsep}{8pt}
-    \item The {\tt [plain]} option for the frame environment causes the headlines, footlines, and sidebars to be suppressed. This can be useful for showing large pictures.
-    \item If you already have a \LaTeX{} document, you can simply wrap {\tt \verb|\begin{frame}|} and {\tt \verb|\end{frame}|} commands around the information you want to present.
+    \item The \texttt{[plain]} option for the frame environment causes the headlines, footlines, and sidebars to be suppressed. This can be useful for showing large pictures.
+    \item If you already have a \LaTeX{} document, you can simply wrap \verb|\begin{frame}| and \verb|\end{frame}| commands around the information you want to present.
   \end{itemize}
 \end{frame}
+
+\begin{frame}
+  \frametitle{Putting Frames Together}
+
+  \begin{block}{Example}
+    \tt \scriptsize
+
+\textbackslash{}begin\{frame\}\\
+\alert{\textbackslash{}titlepage}\\
+\textbackslash{}end\{frame\}\\
+
+\textbackslash{}begin\{frame\}\\
+\alert{
+\textbackslash{}frametitle\{Outline\}\\
+\textbackslash{}tableofcontents[part=1,pausesections]
+}\\
+\textbackslash{}end\{frame\}\\
+
+\textbackslash{}begin\{frame\}\\
+\alert{\textbackslash{}frametitle\{Introduction\}}\\
+Body text / code of the frame goes here.\\
+\textbackslash{}end\{frame\}
+    
+  \end{block}
+\end{frame}
+
 
 \section{Sections}
 
@@ -248,23 +290,25 @@
   \begin{itemize}
     \setlength{\itemsep}{8pt}
     \item Presentations are divided into sections, subsections, and sub-subsections.
-    \item Each call to the {\tt \verb|\section{section name}|}, {\tt \verb|\subsection{subsection name}|}, or {\tt \verb|\subsubsection{sub-subsection name}|} command:
+    \item Each call to the \verb|\section{section name}|, \verb|\subsection{subsection name}|, or \verb|\subsubsection{sub-subsection name}| command:
       \begin{itemize}
         \item Inserts a new entry into the table of contents at the appropriate tree-level.
         \item Inserts a new entry into the navigation bars.
         \item Does not create a frame heading.
       \end{itemize}
-    \item Another version of the command, {\tt \verb|\subsection*{section name}|}, only adds an entry in the navigation bars, \textit{not} the table of contents.
+    \item Another version of the command, \verb|\subsection*{section name}|, only adds an entry in the navigation bars, \textit{not} the table of contents.
   \end{itemize}
 
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Sections and Subsections}
 
   Section specifications are declared between the frames, so they have no direct effect on what is shown inside each frame.
 
-%Example
+  \begin{block}{Example}
+
+\begin{verbatim}
 %...
 %\end{frame}
 %\section{Fine and Wilf’s Theorem}
@@ -272,121 +316,247 @@
 %\subsubsection{Definition 3.7}
 %\begin{frame}
 %...
+\end{verbatim}
+    
+  \end{block}
+  
 
 \end{frame}
 
 
 \section{Text}
-\begin{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Characters}
+
+  \begin{itemize}
+    \setlength{\itemsep}{8pt}
+    \item \texttt{\textbackslash} and \texttt{\textbackslash{}par}
+    \item \verb|\# \$ \% \& \{ \} \_ \~{} \~{} \textbackslash|
+    \item \verb|' '| and \verb|'' ''|
+    \item \verb|-|, \verb|--|, and \verb|---|
+    \item \verb|\ldots|
+    \item \verb|$\sim$|
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
   \frametitle{Common Text Commands and Environments}
 
   You can use the same text commands and environments in Beamer that you do in \LaTeX{} to change the way your text is displayed.
 
   \begin{block}{Common Text Commands}
-    TODO
+    \begin{tabularx}{\textwidth}{X|X}
+      \verb|\emph{Sample Text}|        & \emph{Sample Text}\\
+      \verb|\textbf{Sample Text}|      & \textbf{Sample Text}\\
+      \verb|\textit{Sample Text}|      & \textit{Sample Text}\\
+      \verb|\textsl{Sample Text}|      & \textsl{Sample Text}\\
+      \verb|\alert{Sample Text}|       & \alert{Sample Text}\\
+      \verb|\textrm{Sample Text}|      & \textrm{Sample Text}\\
+      \verb|\textsf{Sample Text}|      & \textsf{Sample Text}\\
+      \verb|\color{green} Sample Text| & \color{green}{Sample Text}\\
+    \end{tabularx}
   \end{block}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Verbatim Text}
+
+  It is often helpful to write code or formulas as verbatim text, which shows the text exactly as you type it, without any \LaTeX{} formatting.
+
+  \begin{itemize}
+  \item For inline verbatim text, such as sample text, use the text command:\\
+    \texttt{\textbackslash{}verb|sample text|}
+  \item The verbatim environment is also available in Beamer and can be used in the same way as it is in \LaTeX{}:\\
+\texttt{\textbackslash{}begin\{verbatim\}\\
+  Sample text\\
+\textbackslash{}end\{verbatim\}}
+  \end{itemize}
+
+  For either of these methods to work, the \alert{\texttt{[fragile]}} option must be added to the frame environment.
   
 \end{frame}
 
-\begin{frame}
-  \frametitle{Semiverbatim Text}
-  
+
+\begin{frame}[fragile]
+  \frametitle{Fonts}
+  \begin{columns}[t]
+    \begin{column}{.65\textwidth}
+      \scriptsize
+\begin{verbatim}
+\usepackage{fontspec}
+%\setmainfont{Helvetica Neue}
+\setmainfont{Arial}
+\setCJKmainfont{Microsoft YaHei}
+%\setCJKmainfont[BoldFont=STHeiti,ItalicFont=STKaiti]{STHeiti}
+%\setCJKsansfont[BoldFont=STHeiti]{STXihei}
+%\setCJKmonofont{STKaiti}
+\end{verbatim}
+    \end{column}
+    \begin{column}{.35\textwidth}
+
+      \begin{tabularx}{\textwidth}{l}
+        \tiny{\verb|\tiny|}\\
+        \scriptsize{\verb|\scriptsize|}\\
+        \footnotesize{\verb|\footnotesize|}\\
+        \small{\verb|\small|}\\
+        \normalsize{\verb|\normalsize|}\\
+        \large{\verb|\large|}\\
+        \Large{\verb|\Large|}\\
+        \LARGE{\verb|\LARGE|}\\
+        \huge{\verb|\huge|}\\
+        \Huge{\verb|\Huge|}
+      \end{tabularx}
+
+    \end{column}      
+  \end{columns}
+
 \end{frame}
 
 
-\section{Styles}
-
-\begin{frame}
-  \frametitle{Font Size}
-  
-\end{frame}
-
-\begin{frame}
-  \frametitle{Font Families}
-  
-\end{frame}
-
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Alightment}
-  align
+
+  \begin{itemize}
+    \setlength{\itemsep}{8pt}
+    \item \verb|\begin{center}| \ldots \verb|\end{center}|
+    \item \verb|\begin{flushleft}| \ldots \verb|\end{flushleft}|
+    \item \verb|\begin{flushright}| \ldots \verb|\end{flushright}|
+    \item \verb|\centering \raggedright \raggedleft|
+  \end{itemize}
+
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Spacing}
-  spacing
-\end{frame}
 
-
-\section{Lists}
-\begin{frame}
-  \frametitle{Lists}
-  lists
-\end{frame}
-
-\begin{frame}
-  \frametitle{Lists - Itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Lists - Enumerate}
-
+  \begin{itemize}
+    \setlength{\itemsep}{8pt}
+    \item A vertical space can be indicated by using the \verb|\vskip<number>pt| command. For example, \verb|\vskip15pt| will produce a 15 point vertical space
+    \item Horizontal spaces are indicated similarly with the command \verb|\hskip<number>pt|
+    \item Horizontal spaces are useful for indenting text or graphics
+    \item Other measurements can also be used, such as centimeters: \verb|\vskip2cm|
+    \item Negative values can also be used to squeeze text or graphics together: \verb|\vskip-10pt| or \verb|\hskip-1cm|
+  \end{itemize}
   
-\end{frame}
-
-\begin{frame}
-  \frametitle{Lists - Description}
 \end{frame}
 
 
 \section{Overlays}
-\begin{frame}
-  \frametitle{Overlays}
-\end{frame}
 
 \begin{frame}
-  \frametitle{Overlays - Pause}
+  \frametitle{Overlays}
+
+  \begin{itemize}
+    \item Having parts of your slides appear incrementally aids the audience by bringing their attention to the information that is currently being discussed.
+    \item In Beamer, \alert{overlays} control the order in which parts of the frame appear.
+  \end{itemize}
 \end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Overlays - Pause}
+
+  An easy way to implement an overlay is to place the \verb|\pause| command between the parts you want to show up separately.
+
+  For example, you could separate three items like this:
+
+\textbf{Step1:} Step1
+\pause
+
+\textbf{Step 2:} Step2
+\pause
+
+\textbf{Step 3:} Step3
+  
+\end{frame}
+
+
 
 \begin{frame}
   \frametitle{Overlays - Specifications}
+
+  \begin{itemize}
+  \item Overlay specifications are given in pointed brackets (\texttt{<},\texttt{>}) and indicate which slide the corresponding information should appear on.
+  \item The specification \texttt{<1->} means display from slide 1 on. \texttt{<1-3>} means display from slide 1 to slide 3.
+  \end{itemize}
+
+  \begin{block}{Example}
+
+    \begin{itemize}
+      \item<1> $abcadcabca$
+      \item<1-2> $abcabcabca$
+      \item<1> $bacabacaba$
+      \item<1,3> $cacdaccacc$
+    \end{itemize}
+    
+  \end{block}
+  
 \end{frame}
 
-\section{Tables}
-\begin{frame}
-  \frametitle{Tables}
-  tables
-\end{frame}
 
 \section{Structures}
 
 \begin{frame}
-  \frametitle{Blocks}
+  \frametitle{Structure - Tables}
+  tables
 \end{frame}
 
-\begin{frame}
-  \frametitle{Columns}
-\end{frame}
 
 \begin{frame}
-  \frametitle{Text Boxes}
+  \frametitle{Structure - Columns}
 \end{frame}
+
+
+\begin{frame}
+  \frametitle{Structure - Boxes}
+\end{frame}
+
 
 \section{Graphics}
+
 \begin{frame}
   \frametitle{Graphics}
-  graph
+  \includegraphics[width=1cm]{./figs/GitHub-Mark-120px-plus.png}
 \end{frame}
 
 
 \section{Transition}
+
 \begin{frame}
   \frametitle{Transition}
-  transition
+  \transboxin
+
+  This page has transition effect when PDF entering presentation mode, this works perfectly in Adobe Acrobat Reader or  Adobe Acrobat DC, other PDF viewers, ermmmmm \ldots
+  
+  \begin{itemize}
+    \item The PDF format offers a standardized way of defining transition effects from one slide to the next. For example, whatever was shown before the slide with the transition effect may dissolve to uncover the new slide.
+    \item These effects should be used sparingly as to not distract from the content of the presentation.
+    \item Be forewarned, different PDF viewers have different interpretations and levels of support for these effects.
+  \end{itemize}
 \end{frame}
+
+
+\begin{frame}
+  \frametitle{Frame Transition Commands}
+
+  \begin{description}[labelwidth=\widthof{\bfseries The longest label}]
+    \item[\texttt{\textbackslash{}transblindshorizontal}] Horizontal blinds pulled away
+    \item[\texttt{\textbackslash{}transblindsvertical}] Vertical blinds pulled away
+    \item[\texttt{\textbackslash{}transboxin}] Move to center from all sides
+    \item[\texttt{\textbackslash{}transboxout}] Move to all sides from center
+    \item[\texttt{\textbackslash{}transdissolve}] Slowly dissolve what was shown before
+    \item[\texttt{\textbackslash{}transglitter}] Glitter sweeps in specified direction
+    \item[\texttt{\textbackslash{}transslipverticalin}] Sweeps two vertical lines in
+    \item[\texttt{\textbackslash{}transslipverticalout}] Sweeps two vertical lines out
+    \item[\texttt{\textbackslash{}transhorizontalin}] Sweeps two horizontal lines in
+    \item[\texttt{\textbackslash{}transhorizontalout}] Sweeps two horizontal lines out
+    \item[\texttt{\textbackslash{}transwipe}] Sweeps single line in specified direction
+    \item[\texttt{\textbackslash{}transduration\{2\}}] Show slide specified number of seconds
+  \end{description}
+  
+\end{frame}
+
 
 \addtocounter{framenumber}{-1}
 

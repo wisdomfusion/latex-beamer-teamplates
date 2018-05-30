@@ -9,4 +9,5 @@ auto/
 *synctex.gz
 *.toc
 *.vrb
+*.rel
 .DS_Store
