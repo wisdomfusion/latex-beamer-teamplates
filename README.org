@@ -1,7 +1,13 @@
-* Yet Another LaTeX Beamer Template
+* My LaTeX Beamer Templates
 
-** GoogleBlue
+** [[./googleblue/][GoogleBlue]]
 
-   
-  
-  
+*** Prerequisites
+
+*Fonts*
+    
+- IBM Plex: Serif, Sans, Sans Condensed, Mono
+- Cambria Math
+- Source Han Sans CN
+- STKaiti
+
