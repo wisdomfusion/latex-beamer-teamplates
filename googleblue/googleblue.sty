@@ -10,6 +10,7 @@
 \usecolortheme{whale}
 
 \setbeamerfont{block title}{size={}}
+\newfontfamily\plexcondensed{IBM Plex Sans Condensed}
 
 % Itemize items: default (triangle), circle, square, ball
 \setbeamertemplate{itemize items}[circle]
@@ -39,7 +40,7 @@
 \definecolor{sapblue}{RGB}{0,103,120}
 
 % Material Colors
-\definecolor{matred}{HTML}{F44336}
+\definecolor{matred}{HTML}{Dd4b39}
 \definecolor{matblue}{HTML}{2196F3}
 \definecolor{matbluelight}{HTML}{BBDEFB}
 \definecolor{matbluedark}{HTML}{1976D2}
@@ -122,6 +123,7 @@
     \hskip10pt
     \insertshorttitle
     \hfill
+    \plexcondensed
     \insertsectionnavigationhorizontal{.8\textwidth}{\hskip0pt plus1fill}{}
     \vskip5pt
 
@@ -167,7 +169,7 @@
     \begin{minipage}[t]{\textwidth}
       \usebeamerfont{title} {\huge \inserttitle} \par
       \vskip4pt
-      \usebeamerfont{subtitle} {\small \insertsubtitle}
+      \usebeamerfont{subtitle} {\small \plexcondensed \insertsubtitle}
     \end{minipage}
   \end{beamercolorbox}
 

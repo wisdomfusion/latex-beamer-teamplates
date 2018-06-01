@@ -9,7 +9,7 @@
 \usepackage{xcolor}
 \usepackage{braket}
 \usepackage{listings}
-\usepackage{tabularx}
+\usepackage{tabularx,multirow}
 
 \lstset{
   upquote,
@@ -33,9 +33,15 @@
 %\usepackage{ebgaramond}
 \usefonttheme{serif}
 \usepackage{fontspec}
+
 %\setmainfont{Helvetica Neue}
-\setmainfont{Arial}
-\setCJKmainfont{Source Han Sans CN}
+%\setmainfont{Arial}
+\setmainfont{IBM Plex Serif}
+\setsansfont{IBM Plex Sans}
+\setmathrm{Cambria Math}
+\setmonofont{IBM Plex Mono}
+
+\setCJKmainfont[ItalicFont=STKaiti]{Source Han Sans CN}
 %\setCJKmainfont[BoldFont=STHeiti,ItalicFont=STKaiti]{STHeiti}
 %\setCJKsansfont[BoldFont=STHeiti]{STXihei}
 %\setCJKmonofont{STKaiti}
@@ -44,7 +50,7 @@
 
 
 \title[Beamer Tutorial]{Beamer in a Nutshell}
-\subtitle{presentation with \LaTeX{} made easy}
+\subtitle{presentation with \texttt{\LaTeX} made easy\\ \texttt{\LaTeX} 让制作演示文稿变得简单}
 \author[WisdomFusion]{\scriptsize \textcolor{gray}{WisdomFusion\\ <WisdomFusion@gmail.com>}}
 \date{May, $2018$}
 
@@ -333,7 +339,7 @@ Body text / code of the frame goes here.\\
     \setlength{\itemsep}{8pt}
     \item \texttt{\textbackslash} and \texttt{\textbackslash{}par}
     \item \verb|\# \$ \% \& \{ \} \_ \~{} \~{} \textbackslash|
-    \item \verb|' '| and \verb|'' ''|
+    \item \verb|` '| and \verb|`` ''|
     \item \verb|-|, \verb|--|, and \verb|---|
     \item \verb|\ldots|
     \item \verb|$\sim$|
@@ -382,8 +388,8 @@ Body text / code of the frame goes here.\\
 \begin{frame}[fragile]
   \frametitle{Fonts}
   \begin{columns}[t]
-    \begin{column}{.65\textwidth}
-      \scriptsize
+    \begin{column}{.6\textwidth}
+      \tiny
 \begin{verbatim}
 \usepackage{fontspec}
 %\setmainfont{Helvetica Neue}
@@ -394,7 +400,7 @@ Body text / code of the frame goes here.\\
 %\setCJKmonofont{STKaiti}
 \end{verbatim}
     \end{column}
-    \begin{column}{.35\textwidth}
+    \begin{column}{.4\textwidth}
 
       \begin{tabularx}{\textwidth}{l}
         \tiny{\verb|\tiny|}\\
@@ -461,6 +467,8 @@ Body text / code of the frame goes here.\\
 
   For example, you could separate three items like this:
 
+  \vskip10pt
+
 \textbf{Step1:} Step1
 \pause
 
@@ -497,19 +505,93 @@ Body text / code of the frame goes here.\\
 
 \section{Structures}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Structure - Tables}
-  tables
+
+
+    \begin{columns}[t]
+    \begin{column}{.7\textwidth}
+      \tiny
+\begin{verbatim}
+\begin{tabular}{|c|r|r|}  
+  \hline  
+  \multirow{2}*{姓名} & \multicolumn{2}{c|}{成绩}  \\ \cline{2-3}  
+                      &  语文  &   数学  \\     
+  \hline  
+  张三                & 87     &  100 \\  
+  \hline  
+\end{tabular}
+\end{verbatim}
+    \end{column}
+    \begin{column}{.3\textwidth}
+
+        \begin{tabular}{|c|r|r|}  
+          \hline  
+          \multirow{2}*{姓名} & \multicolumn{2}{c|}{成绩}  \\ \cline{2-3}  
+                              &  语文  &   数学  \\     
+          \hline  
+          张三                & 87     &  100 \\  
+          \hline  
+        \end{tabular}
+
+
+    \end{column}      
+  \end{columns}
+  
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Structure - Columns}
+
+  \centering
+  
+\begin{verbatim}
+\begin{columns}[t]
+  \begin{column}{.5\textwidth}
+    col1
+  \end{column}
+  \begin{column}{.5\textwidth}
+    col2
+  \end{column}      
+\end{columns}
+\end{verbatim}
+
+  
 \end{frame}
 
 
 \begin{frame}
   \frametitle{Structure - Boxes}
+
+  \centering
+  
+  \colorbox{yellow}{黄色盒子}
+  \quad
+  \colorbox{red}{红色盒子}
+  \quad
+  \colorbox{green}{绿色盒子}
+  \quad
+  \colorbox{blue}{\textcolor{white}{蓝色盒子}}
+  
+\end{frame}
+
+
+\section{Math}
+
+\begin{frame}
+  \frametitle{Math}
+
+  The mass-energy equivalence is described by the famous equation
+ 
+  $$E=mc^2$$
+ 
+  discovered in 1905 by Albert Einstein. In natural units ($c=1$), the formula expresses the identity
+ 
+  \begin{equation}
+    E=m
+  \end{equation}
+  
 \end{frame}
 
 
@@ -517,7 +599,17 @@ Body text / code of the frame goes here.\\
 
 \begin{frame}
   \frametitle{Graphics}
-  \includegraphics[width=1cm]{./figs/GitHub-Mark-120px-plus.png}
+
+  \centering
+  
+  $\vcenter{\hbox{\includegraphics[width=1cm]{./figs/GitHub-Mark-120px-plus.png}}}$
+  \qquad
+  $\vcenter{\hbox{\includegraphics[width=2cm]{./figs/mactexlogoX5.png}}}$
+
+  \vskip5ex
+  
+  \huge{\LaTeX}
+
 \end{frame}
 
 
