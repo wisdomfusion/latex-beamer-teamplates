@@ -7,7 +7,6 @@
 *Fonts*
     
 - [[https://github.com/IBM/plex][IBM Plex]]: Serif, Sans, Sans Condensed, Mono
-- Cambria Math
 - Source Han Sans CN (思源黑体)
 - STKaiti (华文楷体)
 
