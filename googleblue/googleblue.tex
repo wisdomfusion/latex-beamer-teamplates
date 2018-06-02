@@ -38,7 +38,7 @@
 %\setmainfont{Arial}
 \setmainfont{IBM Plex Serif}
 \setsansfont{IBM Plex Sans}
-\setmathrm{Cambria Math}
+%\setmathrm{Cambria Math}
 \setmonofont{IBM Plex Mono}
 
 \setCJKmainfont[ItalicFont=STKaiti]{Source Han Sans CN}
@@ -415,7 +415,7 @@ Body text / code of the frame goes here.\\
         \Huge{\verb|\Huge|}
       \end{tabularx}
 
-    \end{column}      
+    \end{column}
   \end{columns}
 
 \end{frame}
@@ -510,33 +510,31 @@ Body text / code of the frame goes here.\\
 
 
     \begin{columns}[t]
-    \begin{column}{.7\textwidth}
-      \scriptsize
+    \begin{column}{.75\textwidth}
+      \small
 \begin{verbatim}
-\begin{tabular}{|c|r|r|}  
-  \hline  
-  \multirow{2}*{姓名} & \multicolumn{2}{c|}{成绩}  \\
-  \cline{2-3}  
-                      &  语文  &   数学  \\     
-  \hline  
-  张三                & 87     &  100 \\  
-  \hline  
+\begin{tabular}{|c|r|r|}
+  \hline
+  \multirow{2}*{姓名} & \multicolumn{2}{c|}{成绩}\\
+  \cline{2-3}
+                     & 语文 & 数学\\
+  \hline
+  张三                & 87 & 100\\
+  \hline
 \end{tabular}
 \end{verbatim}
     \end{column}
-    \begin{column}{.3\textwidth}
-
-        \begin{tabular}{|c|r|r|}  
-          \hline  
-          \multirow{2}*{姓名} & \multicolumn{2}{c|}{成绩}  \\ \cline{2-3}  
-                              &  语文  &   数学  \\     
-          \hline  
-          张三                & 87     &  100 \\  
-          \hline  
+    \begin{column}{.25\textwidth}
+        \begin{tabular}{|c|r|r|}
+          \hline
+          \multirow{2}*{姓名} & \multicolumn{2}{c|}{成绩}\\
+          \cline{2-3}
+                             & 语文 & 数学\\
+          \hline
+          张三                & 87 & 100\\
+          \hline
         \end{tabular}
-
-
-    \end{column}      
+    \end{column}
   \end{columns}
   
 \end{frame}
@@ -554,7 +552,7 @@ Body text / code of the frame goes here.\\
   \end{column}
   \begin{column}{.5\textwidth}
     col2
-  \end{column}      
+  \end{column}
 \end{columns}
 \end{verbatim}
 
@@ -566,7 +564,6 @@ Body text / code of the frame goes here.\\
   \frametitle{Structure - Boxes}
 
   \centering
-  
   \colorbox{yellow}{黄色盒子}
   \quad
   \colorbox{red}{红色盒子}
@@ -574,7 +571,6 @@ Body text / code of the frame goes here.\\
   \colorbox{green}{绿色盒子}
   \quad
   \colorbox{blue}{\textcolor{white}{蓝色盒子}}
-  
 \end{frame}
 
 
