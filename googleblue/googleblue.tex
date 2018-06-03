@@ -1,4 +1,8 @@
 % !TEX program = xelatex
+%%%
+%%% @author:  WisdomFusion <WisdomFusion@gmailcom>
+%%% @version: 1.2
+
 \documentclass[aspectratio=169,utf8]{ctexbeamer}
 % use beamer if english only
 % aspectratio: 1610, 169, 149, 54, 43 and 32
@@ -11,18 +15,19 @@
 \usepackage{listings}
 \usepackage{tabularx,multirow}
 
-\lstset{
+\lstset{language=[LaTeX]TeX,
   upquote,
   keepspaces=true,
   columns=spaceflexible,
-  numbers=left,
+  numbers=none,
   basicstyle=\ttfamily\scriptsize,
   numberstyle=\color{gray}\ttfamily\tiny,
   keywordstyle=\color{blue}\ttfamily,
   stringstyle=\color{red}\ttfamily,
   commentstyle=\color{teal}\ttfamily,
   emphstyle=\color{blue}\bfseries,
-  frame=none
+  frame=none,
+  escapeinside=``
 }
 
 \usepackage{multicol}
@@ -132,13 +137,13 @@
 
 \section{Template}
 
-\begin{frame}[fragile]
+\begin{frame}[fragile=singleslide]
   \frametitle{Template}
 
   \begin{columns}[t]
-    \begin{column}{.5\textwidth}
+    \begin{column}{.65\textwidth}
       \scriptsize
-\begin{verbatim}
+\begin{lstlisting}
 % !TEX program = xelatex
 \documentclass[aspectratio=169,utf8]{ctexbeamer}
 
@@ -152,31 +157,29 @@
 \title[short title]{long title}
 \subtitle[short subtitle]{long subtitle}
 \author[short name]{long name}
-\end{verbatim}
+\end{lstlisting}
 
       $\longrightarrow$
-      
     \end{column}
 
     \begin{column}{.35\textwidth}
       \scriptsize
-\begin{verbatim}
-%\begin{document}
-%\begin{frame}
-%  \titlepage
-%\end{frame}
-%\begin{frame}
-%  \frametitle{Outline}
-%  \tableofcontents
-%\end{frame}
-%\section{Some Section}
-%\begin{frame}
-%  \frametitle{Section Title}
-%
-%  Section content
-%\end{frame}
-%\end{document}
-\end{verbatim}
+\begin{lstlisting}
+\begin{document}
+\begin{frame}
+  \titlepage
+\end{frame}
+\begin{frame}
+\frametitle{Outline}
+  \tableofcontents
+\end{frame}
+\section{Some Section}
+\begin{frame}
+  \frametitle{Section Title}
+  Section content
+\end{frame}
+\end{document}
+\end{lstlisting}
       
     \end{column}
     
@@ -210,7 +213,7 @@
 
 \section{Frames}
 
-\begin{frame}[fragile]
+\begin{frame}[fragile=singleslide]
   \frametitle{Frames}
 
   \begin{itemize}
@@ -220,18 +223,20 @@
   \end{itemize}
 
   \begin{block}{A Basic Frame}
-    \begin{verbatim}
-%\begin{frame}[<alignment>]
-%  \frametitle{Frame Title Goes Here}
-%  Frame body text and/or LATEX code
-%\end{frame}
-    \end{verbatim}
+
+\begin{lstlisting}
+\begin{frame}[<alignment>]
+  \frametitle{Frame Title Goes Here}
+  Frame body text and/or LATEX code
+\end{frame}
+\end{lstlisting}
+
   \end{block}
   
 \end{frame}
 
 
-\begin{frame}[fragile]
+\begin{frame}[fragile=singleslide]
   \frametitle{Frames}
 
   \begin{itemize}
@@ -241,12 +246,12 @@
   \end{itemize}
 
   \begin{block}{A Basic Frame}
-\begin{verbatim}
-%\begin{frame}[t]
-%  \frametitle{Algorithmic Combinatorics on Words}
-%  \textit{Words}, or strings of symbols over..
-%\end{frame}
-\end{verbatim}
+\begin{lstlisting}
+\begin{frame}[t]
+  \frametitle{Algorithmic Combinatorics on Words}
+  \textit{Words}, or strings of symbols over..
+\end{frame}
+\end{lstlisting}
   \end{block}
 
 \end{frame}
@@ -307,22 +312,22 @@ Body text / code of the frame goes here.\\
 
 \end{frame}
 
-\begin{frame}[fragile]
+\begin{frame}[fragile=singleslide]
   \frametitle{Sections and Subsections}
 
   Section specifications are declared between the frames, so they have no direct effect on what is shown inside each frame.
 
   \begin{block}{Example}
 
-\begin{verbatim}
-%...
-%\end{frame}
-%\section{Fine and Wilf’s Theorem}
-%\subsection{The Case of Two or Three Holes}
-%\subsubsection{Definition 3.7}
-%\begin{frame}
-%...
-\end{verbatim}
+\begin{lstlisting}
+...
+\end{frame}
+\section{Fine and Wilf’s Theorem}
+\subsection{The Case of Two or Three Holes}
+\subsubsection{Definition 3.7}
+\begin{frame}
+...
+\end{lstlisting}
     
   \end{block}
   
@@ -361,7 +366,7 @@ Body text / code of the frame goes here.\\
       \verb|\alert{Sample Text}|       & \alert{Sample Text}\\
       \verb|\textrm{Sample Text}|      & \textrm{Sample Text}\\
       \verb|\textsf{Sample Text}|      & \textsf{Sample Text}\\
-      \verb|\color{green} Sample Text| & \color{green}{Sample Text}\\
+      \verb|\color{green} Sample Text| & \color{green}{Sample Text}
     \end{tabularx}
   \end{block}
 \end{frame}
@@ -390,15 +395,15 @@ Body text / code of the frame goes here.\\
   \begin{columns}[t]
     \begin{column}{.6\textwidth}
       \tiny
-\begin{verbatim}
+\begin{lstlisting}
 \usepackage{fontspec}
 %\setmainfont{Helvetica Neue}
 \setmainfont{Arial}
 \setCJKmainfont{Microsoft YaHei}
-%\setCJKmainfont[BoldFont=STHeiti,ItalicFont=STKaiti]{STHeiti}
-%\setCJKsansfont[BoldFont=STHeiti]{STXihei}
+%\setCJKmainfont[BoldFont=STHeiti]{STHeiti}
+%\setCJKsansfont[BoldFont=STHeiti]{STHeiti}
 %\setCJKmonofont{STKaiti}
-\end{verbatim}
+\end{lstlisting}
     \end{column}
     \begin{column}{.4\textwidth}
 
@@ -509,10 +514,10 @@ Body text / code of the frame goes here.\\
   \frametitle{Structure - Tables}
 
 
-    \begin{columns}[t]
-    \begin{column}{.75\textwidth}
+    \begin{columns}
+    \begin{column}{.7\textwidth}
       \small
-\begin{verbatim}
+\begin{lstlisting}
 \begin{tabular}{|c|r|r|}
   \hline
   \multirow{2}*{姓名} & \multicolumn{2}{c|}{成绩}\\
@@ -522,9 +527,9 @@ Body text / code of the frame goes here.\\
   张三                & 87 & 100\\
   \hline
 \end{tabular}
-\end{verbatim}
+\end{lstlisting}
     \end{column}
-    \begin{column}{.25\textwidth}
+    \begin{column}{.3\textwidth}
         \begin{tabular}{|c|r|r|}
           \hline
           \multirow{2}*{姓名} & \multicolumn{2}{c|}{成绩}\\
@@ -545,7 +550,7 @@ Body text / code of the frame goes here.\\
 
   \centering
   
-\begin{verbatim}
+\begin{lstlisting}
 \begin{columns}[t]
   \begin{column}{.5\textwidth}
     col1
@@ -554,7 +559,7 @@ Body text / code of the frame goes here.\\
     col2
   \end{column}
 \end{columns}
-\end{verbatim}
+\end{lstlisting}
 
   
 \end{frame}
