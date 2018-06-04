@@ -13,7 +13,8 @@
 \usepackage{xcolor}
 \usepackage{braket}
 \usepackage{listings}
-\usepackage{tabularx,multirow}
+\usepackage{tabularx,multicol,multirow}
+\usepackage{wrapfig}
 
 \lstset{language=[LaTeX]TeX,
   upquote,
@@ -139,13 +140,12 @@
 
 \begin{frame}[fragile=singleslide]
   \frametitle{Template}
+  
+  Basic Beamer file structure:
 
-  \begin{columns}[t]
-    \begin{column}{.65\textwidth}
-      \scriptsize
-\begin{lstlisting}
+\begin{lstlisting}[language=TeX,multicols=2,basicstyle=\ttfamily\tiny,numbers=left]
 % !TEX program = xelatex
-\documentclass[aspectratio=169,utf8]{ctexbeamer}
+\documentclass[aspectratio=169,UTF-8]{ctexbeamer}
 
 \usepackage{graphicx,hyperref}
 \usepackage{xcolor}
@@ -157,14 +157,7 @@
 \title[short title]{long title}
 \subtitle[short subtitle]{long subtitle}
 \author[short name]{long name}
-\end{lstlisting}
 
-      $\longrightarrow$
-    \end{column}
-
-    \begin{column}{.35\textwidth}
-      \scriptsize
-\begin{lstlisting}
 \begin{document}
 \begin{frame}
   \titlepage
@@ -180,10 +173,6 @@
 \end{frame}
 \end{document}
 \end{lstlisting}
-      
-    \end{column}
-    
-  \end{columns}
 
 \end{frame}
 
@@ -322,7 +311,7 @@ Body text / code of the frame goes here.\\
 \begin{lstlisting}
 ...
 \end{frame}
-\section{Fine and Wilf’s Theorem}
+\section{Fine and Wilf's Theorem}
 \subsection{The Case of Two or Three Holes}
 \subsubsection{Definition 3.7}
 \begin{frame}
@@ -583,6 +572,13 @@ Body text / code of the frame goes here.\\
 
 \begin{frame}
   \frametitle{Math}
+  
+  \begin{wrapfigure}{r}{0.2\textwidth}
+    \begin{figure}[t]
+      \centering
+      \includegraphics{./figs/taipei101.jpg}
+    \end{figure}
+  \end{wrapfigure}
 
   The mass-energy equivalence is described by the famous equation
  
