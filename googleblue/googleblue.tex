@@ -347,7 +347,7 @@ Body text / code of the frame goes here.\\
   You can use the same text commands and environments in Beamer that you do in \LaTeX{} to change the way your text is displayed.
 
   \begin{block}{Common Text Commands}
-    \begin{tabularx}{\textwidth}{X|X}
+    \begin{tabular}{>{\arraybackslash}m{.5\textwidth} >{\arraybackslash}m{.5\textwidth}}
       \verb|\emph{Sample Text}|        & \emph{Sample Text}\\
       \verb|\textbf{Sample Text}|      & \textbf{Sample Text}\\
       \verb|\textit{Sample Text}|      & \textit{Sample Text}\\
@@ -356,7 +356,7 @@ Body text / code of the frame goes here.\\
       \verb|\textrm{Sample Text}|      & \textrm{Sample Text}\\
       \verb|\textsf{Sample Text}|      & \textsf{Sample Text}\\
       \verb|\color{green} Sample Text| & \color{green}{Sample Text}
-    \end{tabularx}
+    \end{tabular}
   \end{block}
 \end{frame}
 
