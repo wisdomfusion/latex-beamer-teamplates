@@ -5,8 +5,11 @@
 *** Prerequisites
 
 *Fonts*
-    
-- [[https://github.com/IBM/plex][IBM Plex]]: Serif, Sans, Sans Condensed, Mono
-- Source Han Sans CN (思源黑体)
-- STKaiti (华文楷体)
 
+- Minion Pro
+- Myriad Pro
+- Courier Std
+- [[https://github.com/IBM/plex][IBM Plex]]: SSans Condensed
+- [[https://github.com/adobe-fonts/source-han-sans][Source Han Sans (思源黑体)]]
+- Adobe Kaiti Std
+- Adobe Fangsong Std

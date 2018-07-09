@@ -25,10 +25,10 @@
 \setbeamertemplate{blocks}[rounded=false]
 
 % Title page:
-\setbeamertemplate{title page}[default][colsep=-4bp, rounded=false]
+\setbeamertemplate{title page}[default][colsep=-4bp,rounded=false]
 
 % Part page:
-\setbeamertemplate{part page}[default][colsep=-4bp, rounded=false]
+\setbeamertemplate{part page}[default][colsep=-4bp,rounded=false]
 
 % Navigation symbols:
 %\setbeamertemplate{navigation symbols}{}
@@ -40,7 +40,7 @@
 \definecolor{sapblue}{RGB}{0,103,120}
 
 % Material Colors
-\definecolor{matred}{HTML}{Dd4b39}
+\definecolor{matred}{HTML}{DD4B39}
 \definecolor{matblue}{HTML}{2196F3}
 \definecolor{matbluelight}{HTML}{BBDEFB}
 \definecolor{matbluedark}{HTML}{1976D2}
@@ -49,9 +49,9 @@
 %\setbeamercolor{frametitle}{parent=subsection in head/foot}
 %\setbeamercolor{frametitle right}{parent=section in head/foot}
 \definecolor{grey}{HTML}{51504A}
-\setbeamercolor{section in head/foot}{bg=matbluedark, fg=white}
+\setbeamercolor{section in head/foot}{bg=matbluedark,fg=white}
 \setbeamercolor{footline}{bg=matbluedark}
-\setbeamercolor{title in head/foot}{bg=matbluedark, fg=white}
+\setbeamercolor{title in head/foot}{bg=matbluedark,fg=white}
 
 % shadowing
 \AtBeginDocument{
@@ -62,11 +62,11 @@
 
 \AtBeginPart{
   {% start a group to keep the template change local
-    \setbeamercolor{background canvas}{bg=matblue, fg=white}
+    \setbeamercolor{background canvas}{bg=matblue,fg=white}
     \frame{\partpage}
 
     \setbeamertemplate{part page}{
-      \begin{beamercolorbox}[center, wd=\textwidth]{part title}
+      \begin{beamercolorbox}[center,wd=\textwidth]{part title}
         \usebeamerfont{part title}\insertpart
       \end{beamercolorbox}
     }
@@ -101,12 +101,12 @@
 }
 
 
-\setbeamercolor{block body}{bg=matbluelight, fg=black}
+\setbeamercolor{block body}{bg=matbluelight,fg=black}
 \defbeamertemplate*{block begin}{mat theme}
 {
   \vskip\smallskipamount
   \begin{tcolorbox}[title=\small \insertblocktitle]
-    \small
+  \small
 }
 
 \defbeamertemplate*{block end}{mat theme}
@@ -137,7 +137,7 @@
 % footline
 \defbeamertemplate*{footline}{mat theme}
 {
-  \begin{beamercolorbox}[wd=\paperwidth, ht=2.25ex, dp=1.25ex]{title in head/foot}
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1.25ex]{title in head/foot}
     \begin{minipage}{0.48\textwidth}
       \hskip10pt \usebeamertemplate***{navigation symbols}
     \end{minipage}
@@ -156,7 +156,7 @@
 
   % author
   \usebeamerfont{subtitle}
-  \begin{beamercolorbox}[sep=2em, wd=\paperwidth, dp=0.5cm, right]{thead}
+  \begin{beamercolorbox}[sep=2em,wd=\paperwidth,dp=0.5cm,right]{thead}
     \usebeamerfont{author}
     \insertauthor
   \end{beamercolorbox}
@@ -164,8 +164,8 @@
   \nointerlineskip
 
   % title
-  \setbeamercolor{postit}{fg=white, bg=matblue}
-  \begin{beamercolorbox}[sep=2em, wd=\paperwidth, ht=3.5cm, dp=2.25cm]{postit}
+  \setbeamercolor{postit}{fg=white,bg=matblue}
+  \begin{beamercolorbox}[sep=2em,wd=\paperwidth,ht=3.5cm, dp=2.25cm]{postit}
     \begin{minipage}[t]{\textwidth}
       \usebeamerfont{title} {\huge \inserttitle} \par
       \vskip4pt
@@ -177,13 +177,13 @@
 
 
 % frametitle
-\setbeamerfont{frametitle}{size=\normalsize, parent=structure}
+\setbeamerfont{frametitle}{size=\normalsize,parent=structure}
 \defbeamertemplate*{frametitle}{mat theme}{
   \nointerlineskip
 
-  \setbeamercolor{titlebar}{fg=white, bg=matblue}
+  \setbeamercolor{titlebar}{fg=white,bg=matblue}
   \begin{beamercolorbox}[wd=\paperwidth, ht=5.5ex]{titlebar}
-    \hskip10pt \textbf{\insertframetitle} \vfill
+    \hskip12pt \textbf{\insertframetitle} \vfill
     \pgfuseshading{b@matshade}
   \end{beamercolorbox}
 }

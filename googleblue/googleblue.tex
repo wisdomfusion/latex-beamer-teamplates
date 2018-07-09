@@ -36,18 +36,14 @@
 
 \usepackage{setspace}
 
-%\usepackage{ebgaramond}
-\usefonttheme{serif}
+
 \usepackage{fontspec}
 
-%\setmainfont{Helvetica Neue}
-%\setmainfont{Arial}
-\setmainfont{IBM Plex Serif}
-\setsansfont{IBM Plex Sans}
-%\setmathrm{Cambria Math}
-\setmonofont{IBM Plex Mono}
+\setmainfont[Ligatures=TeX]{Minion Pro}
+\setsansfont{Myriad Pro}
+\setmonofont{Courier Std}
 
-\setCJKmainfont[ItalicFont=STKaiti]{Source Han Sans CN}
+\setCJKmainfont[BoldFont={Source Han Sans SC Medium}, ItalicFont={Adobe Kaiti Std}, BoldItalicFont={Adobe Fangsong Std}]{Source Han Sans SC}
 %\setCJKmainfont[BoldFont=STHeiti,ItalicFont=STKaiti]{STHeiti}
 %\setCJKsansfont[BoldFont=STHeiti]{STXihei}
 %\setCJKmonofont{STKaiti}
@@ -86,7 +82,7 @@
       \end{column}
       \begin{column}{.5\textwidth}
         \tableofcontents[sections={6-10}]
-      \end{column}      
+      \end{column}
     \end{columns}
 
     \setstretch{1.5}
@@ -107,7 +103,7 @@
     \item It supports functionality for making PDF slides complete with colors, overlays, environments, themes, transitions, etc.
     \item Adds a couple new features to the commands you've been working with.
   \end{itemize}
-  
+
 \end{frame}
 
 
@@ -120,7 +116,7 @@
     \item You can easily create overlays, themes allow you to change the appearance of your presentation to suit your purposes.
     \item The layout, colors, and fonts used in a presentation can easily be changed globally, but you also have control over the most minute detail.
   \end{itemize}
-  
+
 \end{frame}
 
 
@@ -133,14 +129,14 @@
     \item The final output is typically a \alert{.pdf} file. Viewer applications for this format exist for virtually every platform.
     \item \alert{Your presentation will look exactly the same no matter which computer or viewer program is being used.}
   \end{itemize}
-  
+
 \end{frame}
 
 \section{Template}
 
 \begin{frame}[fragile=singleslide]
   \frametitle{Template}
-  
+
   Basic Beamer file structure:
 
 \begin{lstlisting}[language=TeX,multicols=2,basicstyle=\ttfamily\tiny,numbers=left]
@@ -196,7 +192,7 @@
       \end{itemize}
     }
   \end{block}
-    
+
 \end{frame}
 
 
@@ -221,7 +217,7 @@
 \end{lstlisting}
 
   \end{block}
-  
+
 \end{frame}
 
 
@@ -277,7 +273,7 @@
 \alert{\textbackslash{}frametitle\{Introduction\}}\\
 Body text / code of the frame goes here.\\
 \textbackslash{}end\{frame\}
-    
+
   \end{block}
 \end{frame}
 
@@ -317,9 +313,9 @@ Body text / code of the frame goes here.\\
 \begin{frame}
 ...
 \end{lstlisting}
-    
+
   \end{block}
-  
+
 
 \end{frame}
 
@@ -348,14 +344,14 @@ Body text / code of the frame goes here.\\
 
   \begin{block}{Common Text Commands}
     \begin{tabular}{>{\arraybackslash}m{.5\textwidth} >{\arraybackslash}m{.5\textwidth}}
-      \verb|\emph{Sample Text}|        & \emph{Sample Text}\\
-      \verb|\textbf{Sample Text}|      & \textbf{Sample Text}\\
-      \verb|\textit{Sample Text}|      & \textit{Sample Text}\\
-      \verb|\textsl{Sample Text}|      & \textsl{Sample Text}\\
-      \verb|\alert{Sample Text}|       & \alert{Sample Text}\\
-      \verb|\textrm{Sample Text}|      & \textrm{Sample Text}\\
-      \verb|\textsf{Sample Text}|      & \textsf{Sample Text}\\
-      \verb|\color{green} Sample Text| & \color{green}{Sample Text}
+      \verb|\emph{Sample Text}|         & \emph{Sample Text}\\
+      \verb|\textbf{Sample Text}|       & \textbf{Sample Text}\\
+      \verb|\textit{Sample Text}|       & \textit{Sample Text}\\
+      \verb|\textsl{Sample Text}|       & \textsl{Sample Text}\\
+      \verb|\alert{Sample Text}|        & \alert{Sample Text}\\
+      \verb|\textrm{Sample Text}|       & \textrm{Sample Text}\\
+      \verb|\textsf{Sample Text}|       & \textsf{Sample Text}\\
+      \verb|\color{green}{Sample Text}| & \color{green}{Sample Text}
     \end{tabular}
   \end{block}
 \end{frame}
@@ -375,7 +371,7 @@ Body text / code of the frame goes here.\\
   \end{itemize}
 
   For either of these methods to work, the \alert{\texttt{[fragile]}} option must be added to the frame environment.
-  
+
 \end{frame}
 
 
@@ -439,7 +435,7 @@ Body text / code of the frame goes here.\\
     \item Other measurements can also be used, such as centimeters: \verb|\vskip2cm|
     \item Negative values can also be used to squeeze text or graphics together: \verb|\vskip-10pt| or \verb|\hskip-1cm|
   \end{itemize}
-  
+
 \end{frame}
 
 
@@ -463,14 +459,14 @@ Body text / code of the frame goes here.\\
 
   \vskip10pt
 
-\textbf{Step1:} Step1
+\textbf{Step 1:} Step1
 \pause
 
 \textbf{Step 2:} Step2
 \pause
 
 \textbf{Step 3:} Step3
-  
+
 \end{frame}
 
 
@@ -491,9 +487,9 @@ Body text / code of the frame goes here.\\
       \item<1> $bacabacaba$
       \item<1,3> $cacdaccacc$
     \end{itemize}
-    
+
   \end{block}
-  
+
 \end{frame}
 
 
@@ -530,7 +526,7 @@ Body text / code of the frame goes here.\\
         \end{tabular}
     \end{column}
   \end{columns}
-  
+
 \end{frame}
 
 
@@ -538,7 +534,7 @@ Body text / code of the frame goes here.\\
   \frametitle{Structure - Columns}
 
   \centering
-  
+
 \begin{lstlisting}
 \begin{columns}[t]
   \begin{column}{.5\textwidth}
@@ -550,7 +546,7 @@ Body text / code of the frame goes here.\\
 \end{columns}
 \end{lstlisting}
 
-  
+
 \end{frame}
 
 
@@ -572,7 +568,7 @@ Body text / code of the frame goes here.\\
 
 \begin{frame}
   \frametitle{Math}
-  
+
   \begin{wrapfigure}{r}{0.2\textwidth}
     \begin{figure}[t]
       \centering
@@ -581,15 +577,15 @@ Body text / code of the frame goes here.\\
   \end{wrapfigure}
 
   The mass-energy equivalence is described by the famous equation
- 
+
   $$E=mc^2$$
- 
+
   discovered in 1905 by Albert Einstein. In natural units ($c=1$), the formula expresses the identity
- 
+
   \begin{equation}
     E=m
   \end{equation}
-  
+
 \end{frame}
 
 
@@ -599,13 +595,13 @@ Body text / code of the frame goes here.\\
   \frametitle{Graphics}
 
   \centering
-  
+
   $\vcenter{\hbox{\includegraphics[width=1cm]{./figs/GitHub-Mark-120px-plus.png}}}$
   \qquad
   $\vcenter{\hbox{\includegraphics[width=2cm]{./figs/mactexlogoX5.png}}}$
 
   \vskip5ex
-  
+
   \huge{\LaTeX}
 
 \end{frame}
@@ -618,7 +614,7 @@ Body text / code of the frame goes here.\\
   \transboxin
 
   This page has transition effect when PDF entering presentation mode, this works perfectly in Adobe Acrobat Reader or  Adobe Acrobat DC, other PDF viewers, ermmmmm \ldots
-  
+
   \begin{itemize}
     \item The PDF format offers a standardized way of defining transition effects from one slide to the next. For example, whatever was shown before the slide with the transition effect may dissolve to uncover the new slide.
     \item These effects should be used sparingly as to not distract from the content of the presentation.
@@ -645,7 +641,7 @@ Body text / code of the frame goes here.\\
     \item[\texttt{\textbackslash{}transwipe}] Sweeps single line in specified direction
     \item[\texttt{\textbackslash{}transduration\{2\}}] Show slide specified number of seconds
   \end{description}
-  
+
 \end{frame}
 
 
@@ -668,7 +664,7 @@ Body text / code of the frame goes here.\\
     {\small Beamer -- powerful, flexible and nice-looking presentations}
     \vskip8pt
   \end{beamercolorbox}
-  
+
 \end{frame}
 
 
